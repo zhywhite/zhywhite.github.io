@@ -6,8 +6,9 @@ body {
     color: #222;
 }
 nav {
-    background: #222;
+    background:#bcd0ea;
     padding: 0.5em 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
 nav ul {
     list-style: none;
@@ -15,18 +16,24 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    max-width: 90vw;
 }
 nav ul li {
-    margin: 0 1.2em;
+    margin: 0 1.2em 0.5em 1.2em;
+    word-break: break-all;
 }
 nav ul li a {
-    color: #fff;
+    color: #4f8cff;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 1.18em;
+    letter-spacing: 0.5px;
+    padding: 0.2em 0.5em;
     transition: color 0.2s;
 }
 nav ul li a:hover {
-    color: #4f8cff;
+    color: #222;
 }
 header {
     text-align: center;
@@ -57,6 +64,13 @@ section h2 {
     padding-left: 0.5em;
     font-size: 1.5em;
 }
+.edu-item h3 {
+    font-size: 1.35em;
+    margin-bottom: 0.2em;
+    margin-top: 1em;
+    font-weight: bold;
+}
+
 ul, ol {
     margin: 1em 0 1em 1.5em;
 }

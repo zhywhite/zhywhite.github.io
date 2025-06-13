@@ -1,88 +1,208 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>张昊懿 - 个人主页</title>
+    <title>Haoyi Zhang - Personal Homepage</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="sidebar.css">
 </head>
 <body>
     <div class="sidebar">
-        <img class="avatar" src="assets/avatar.jpg" alt="头像">
-        <h1>张昊懿</h1>
-        <p>博士研究生 | 研究方向：XXX</p>
+        <img class="avatar" src="assets/photo.jpeg" alt="Avatar">
+        <h1>Haoyi Zhang</h1>
+        <p>Ph.D. Candidate @ PKU <br> Research Area: Analog EDA,<br>Custom IC EDA, AI4EDA</p>
+
         <div class="contact">
             <ul>
-                <li>Email: your.email@example.com</li>
-                <li>GitHub: <a href="https://github.com/yourusername" target="_blank">yourusername</a></li>
-                <!-- 更多联系方式 -->
-            </ul>
+                <li>Email: hy.zhang@stu.pku.edu.cn</li>
+                <li>GoogleScholar: <a href="https://scholar.google.com/citations?hl=en&user=K_7c6hkAAAAJ" target="_blank">HaoyiZhang</a></li>
+                <li>GitHub: <a href="https://github.com/zhywhite" target="_blank">zhywhite</a></li>
+                <!-- More contact info -->
+            </ul> 
         </div>
-        <a href="assets/张昊懿.pdf" download style="color:#4f8cff;">下载简历</a>
+        <a href="assets/张昊懿.pdf" download style="color:#4f8cff;">Download CV</a>
     </div>
     <div class="main-content">
     <nav>
         <ul>
             <li><a href="#education">Education</a></li>
             <li><a href="#publications">Publications</a></li>
-            <li><a href="#interns">Interns</a></li>
+            <li><a href="#awards">Awards</a></li>
+            <li><a href="#interns">Internships</a></li>
             <li><a href="#resume">Resume</a></li>
         </ul>
     </nav>
-    <header>
-        <h1>张昊懿</h1>
-        <p>博士研究生 | 研究方向：XXX</p>
-    </header>
-    <section id="about">
-        <h2>个人简介</h2>
-        <p>这里填写你的个人简介。</p>
-    </section>
-    <section id="education">
-        <h2>教育背景</h2>
-        <ul>
-            <li>202X-至今：XX大学 XX专业 博士研究生</li>
-            <li>201X-202X：XX大学 XX专业 本科/硕士</li>
-        </ul>
-    </section>
+    <!-- <section id="about">
+        <h2>About Me</h2>
+        <p>Write your personal introduction here.</p>
+    </section> -->
+
+<section id="education">
+  <h2>Education</h2>
+  <div class="edu-item">
+    <h3>Peking University</h3>
+    <p><strong>2022 – Present</strong> | Ph.D. Candidate, Integrated Circuits</p>
+  </div>
+  <div class="edu-item">
+    <h3>Beihang University</h3>
+    <p><strong>2018 – 2022</strong> | Bachelor, Microelectronics</p>
+  </div>
+</section>
+
     <section id="publications">
-        <h2>论文发表</h2>
-        <ol>
-            <li>张昊懿, XXX, XXX. 论文标题. 期刊/会议, 年份.</li>
-            <li>张昊懿, XXX, XXX. 论文标题. 期刊/会议, 年份.</li>
-            <!-- 更多论文 -->
-        </ol>
+        <h2>Publications</h2>
+<h3>EDA – Analog CAD</h3>
+  <ol>
+    <li><b>Haoyi Zhang*</b>, Xiaohan Gao*, Haoyang Luo, etc.<br>
+      <i>"SAGERoute: Synergistic Analog Routing Considering Geometric and Electrical Constraints with Manual Design Compatibility"</i>.<br>
+      <b>DATE 2023 Best Paper Award</b>
+    </li>
+    <li><b>Haoyi Zhang</b>, Xiaohan Gao, etc.<br>
+      <i>"SAGERoute 2.0: Hierarchical Analog and Mixed Signal Routing Considering Versatile Routing Scenarios"</i>.<br>
+      DATE 2024
+    </li>
+    <li>Xiaohan Gao*, <b>Haoyi Zhang*</b>, Mingjie Liu, etc.<br>
+      <i>"Interactive Analog Layout Editing with Instant Placement and Routing Legalization"</i>.<br>
+      TCAD 2022, co-first-author
+    </li>
+    <li><b>Haoyi Zhang</b>, Xiaohan Gao, etc.<br>
+      <i>"Multi-Scenario Analog and Mixed-Signal Circuit Routing with Agile Human Interaction"</i>.<br>
+      ISEDA 2023
+    </li>
+    <li>Xiaohan Gao, <b>Haoyi Zhang</b>, etc.<br>
+      <i>"Joint Placement Optimization for Hierarchical Analog/Mixed-Signal Circuits"</i>.<br>
+      ICCAD 2024
+    </li>
+    <li>Xiaohan Gao, <b>Haoyi Zhang</b>, etc.<br>
+      <i>"Post-Layout Simulation Driven Analog Circuit Sizing"</i>.<br>
+      Science China 2023
+    </li>
+    <li>Yibo Lin, Xiaohan Gao, <b>Haoyi Zhang</b>, etc.<br>
+      <i>"Intelligent and Interactive Analog Layout Design Automation"</i>.<br>
+      ICSICT 2022
+    </li>
+    <!-- <li>Bingyang Liu, Haoning Jiang, <b>Haoyi Zhang</b>, etc.<br>
+      <i>"GRAIN: A Design-Intent-Driven Interactive Analog Layout Migration Framework"</i>.<br>
+      ICCAD 2025 (submitted)
+    </li> -->
+  </ol>
+
+  <h3>EDA – Design Space Exploration</h3>
+  <ol start="8">
+    <li><b>Haoyi Zhang</b>, Jiahao Song, etc.<br>
+      <i>"EasyACiM: An End-to-End Automated Analog Cll with Synthesizable Architecture and Agile Design Space Exploration"</i>.<br>
+      DAC 2024
+    </li>
+    <li>Haikang Diao*, <b>Haoyi Zhang*</b><br>
+      <i>"SEGA-DCIM: Design Space Exploration-Guided Automatic Digital CIM Compiler with Multiple Precision Support"</i>.<br>
+      DATE 2025, co-first-author
+    </li>
+  </ol>
+
+  <h3>EDA – AI4EDA</h3>
+  <ol start="10">
+    <li><b>Haoyi Zhang</b>, Shizhao Sun, etc.<br>
+      <i>"AnalogXpert: Automating Analog Topology Synthesis by Incorporating Circuit Design Expertise into Large Language Models"</i>.<br>
+      ISEDA 2025
+    </li>
+    <!-- <li><b>Haoyi Zhang*</b>, Jiechen Huang*, etc.<br>
+      <i>"APEC-Route: Guiding Analog Routing with On-the-Fly Parasitic Extraction Based on Neural Capacitance Model"</i>.<br>
+      ICCAD 2025 (submitted)
+    </li> -->
+    <!-- <li>Weijian Fan*, <b>Haoyi Zhang*</b>, etc.<br>
+      <i>"AMSHBO: Multi-Stage Hierarchical Bayesian Optimization for Substructure-Aware High-Dimensional Analog Circuit Sizing"</i>.<br>
+      ICCAD 2025 (submitted)
+    </li> -->
+    <li>Bingyang Liu*, <b>Haoyi Zhang*</b>, etc.<br>
+      <i>"LayoutCopilot: An LLM-powered Multi-agent Collaborative Framework for Interactive Analog Layout Design"</i>.<br>
+      TCAD 2024, co-first-author
+    </li>
+    <li>Bingyang Liu, <b>Haoyi Zhang</b>, etc.<br>
+      <i>"LayoutCopilot: LLM-Empowered Analog Layout Design towards Enhanced Human-Machine Interaction"</i>.<br>
+      ISCAS 2025
+    </li>
+    <li>Lei Chen, Yiqi Chen, Zhufei Chu, etc. (<b>Haoyi Zhang</b>, co-author)<br>
+      <i>"The dawn of AI-native EDA: Promises and challenges of large circuit models"</i>.<br>
+      Science China 2024
+    </li>
+  </ol>
+
+  <h3>EDA – Standard Cell</h3>
+  <ol start="14">
+    <li>Kairong Guo, Xiaohan Gao, <b>Haoyi Zhang</b>, etc.<br>
+      <i>"Multi-Row Standard Cell Layout Synthesis with Enhanced Scalability"</i>.<br>
+      ISEDA 2025
+    </li>
+    <li>Kairong Guo, Xiaohan Gao, <b>Haoyi Zhang</b>, etc.<br>
+      <i>"Exploring Better Intra-Cell Routability for Layout Synthesis of Multi-Row Standard Cells"</i>.<br>
+      ASP-DAC 2025, Invited paper
+    </li>
+  </ol>
+
+  <h3>Circuit Design</h3>
+  <ol start="16">
+    <li><b>Haoyi Zhang</b>, Jiahao Song, etc.<br>
+      <i>"A 266F<sup>2</sup> Ultra Stable Differential NOR-Structured Physically Unclonable Function with &lt; 6×10<sup>−9</sup> Bit Error Rate Through Efficient Redundancy Strategy"</i>.<br>
+      TCAS-II 2024
+    </li>
+    <li>Jiahao Song, Xiyuan Tang, Haoyang Luo, <b>Haoyi Zhang</b>, Xin Qiao<br>
+      <i>"A Calibration-Free 15-level/Cell eDRAM Computing-in-Memory Macro with 3T1C Current-Programmed Dynamic-Cascoded MLC achieving 233-to-304-TOPS/W 4b MAC"</i>.<br>
+      CICC 2023
+    </li>
+    <li>Jiahao Song, Xiyuan Tang, Haoyang Luo, <b>Haoyi Zhang</b>, Xin Qiao<br>
+      <i>"A 4-bit Calibration-Free Computing-In-Memory Macro With 3T1C Current-Programed Dynamic-Cascode Multi-Level-Cell eDRAM"</i>.<br>
+      JSSC 2023
+    </li>
+  </ol>
     </section>
-    <section id="projects">
-        <h2>项目经历</h2>
+    <section id="awards">
+        <h2>Awards</h2>
         <ul>
-            <li>项目名称 - 简要描述</li>
-            <!-- 更多项目 -->
+            <li><b>DATE Best Paper Award, first author, 2023 </b> </li>
+            <li><b>National Scholarship, Peking University, 2024</b> </li>
+            <li>Merit Student, Peking University, 2024</li>
+            <li>Industry Contribution Award, Department of Design Automation and Computing Systems, Peking University (only two recipients per year in the department), 2023</li>
+            <li>Outstanding Research Award, Peking University, 2023</li>
+            <li>First Prize, Huawei Scholarship, 2023 </li>
+            <li>Third Prize, Huawei Scholarship, 2022 </li>
+            <li>Outstanding Graduate, Beihang University, 2022</li>
+            <li>First Prize Scholarship(8%), Beihang University, 2021</li>
+            <li>Merit Student, Beihang University, 2021</li>
+            <li>Second Prize, EDA Elite Design Challenge, 2021&2022 </li>
+            <li>Empyrean Enterprise Special Award, EDA Elite Design Challenge, 2021</li>
         </ul>
     </section>
-    <section id="skills">
-        <h2>技能</h2>
-        <ul>
-            <li>技能1</li>
-            <li>技能2</li>
-            <!-- 更多技能 -->
-        </ul>
-    </section>
-    <section id="contact">
-        <h2>联系方式</h2>
-        <ul>
-            <li>Email: your.email@example.com</li>
-            <li>GitHub: <a href="https://github.com/yourusername" target="_blank">yourusername</a></li>
-            <!-- 更多联系方式 -->
-        </ul>
-    </section>
+
+    <section id="interns">
+  <h2>Internships</h2>
+  <ul>
+    <li>
+      <strong>Present</strong>: Physical Design Intern<br>
+      ByteDance – Jindouyun Program, Beijing
+    </li>
+    <li>
+      <strong>Apr 2024 – Sep 2024</strong>: Research Intern, Machine Learning Group<br>
+      Microsoft Research Asia, Beijing
+    </li>
+    <li>
+      <strong>Jul 2023 – Sep 2023</strong>: Development Intern<br>
+      Huawei Technologies Co., Ltd. (HiSilicon-Turing), Shanghai
+    </li>
+    <li>
+      <strong>Jul 2022 – Jan 2023</strong>: Development Intern<br>
+      Primarius Technology Co., Ltd., Beijing
+    </li>
+  </ul>
+</section>
+
     <section id="resume">
-        <h2>简历下载</h2>
-        <a href="assets/张昊懿.pdf" download>点击下载PDF简历</a>
+        <h2>Resume</h2>
+        <a href="assets/张昊懿.pdf" download>Click to download PDF CV</a>
     </section>
     <footer>
-        <p>&copy; 2024 张昊懿. Powered by GitHub Pages.</p>
+        <p>&copy; 2025 Haoyi Zhang. Powered by GitHub Pages.</p>
     </footer>
-    </div> <!-- main-content 结束 -->
+    </div> <!-- main-content end -->
 </body>
 </html>
