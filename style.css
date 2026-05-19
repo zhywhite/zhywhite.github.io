@@ -309,6 +309,11 @@ h3 {
   margin-bottom: 36px;
 }
 
+.section-summary {
+  color: var(--muted);
+  font-size: 1rem;
+}
+
 .research-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -326,6 +331,10 @@ h3 {
 
 .research-item {
   padding: 24px;
+}
+
+.research-item.featured {
+  grid-column: 1 / -1;
 }
 
 .research-item p,
