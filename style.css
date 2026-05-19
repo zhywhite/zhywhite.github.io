@@ -115,14 +115,14 @@ a:hover {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 330px minmax(0, 1fr);
+  grid-template-columns: 320px minmax(0, 1fr);
   align-items: center;
   gap: 64px;
 }
 
 .profile-media {
   position: relative;
-  width: min(330px, 100%);
+  width: min(320px, 100%);
 }
 
 .profile-media::before {
@@ -136,8 +136,9 @@ a:hover {
 .profile-photo {
   position: relative;
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
+  object-position: center;
   border-radius: 8px;
   border: 1px solid rgba(23, 33, 43, 0.1);
   box-shadow: var(--shadow);
@@ -316,7 +317,6 @@ h3 {
 
 .research-item,
 .timeline-item,
-.publication-card,
 .visitor-panel {
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -334,56 +334,37 @@ h3 {
   color: var(--muted);
 }
 
-.publication-year {
+.publication-groups {
   display: grid;
-  grid-template-columns: 96px minmax(0, 1fr);
-  gap: 28px;
-  padding: 18px 0 28px;
-  border-top: 1px solid var(--line);
+  gap: 48px;
 }
 
-.publication-year h3 {
-  position: sticky;
-  top: 88px;
-  align-self: start;
+.publication-group {
+  border-top: 1px solid var(--line);
+  padding-top: 26px;
+}
+
+.publication-group h3 {
   color: var(--coral);
-  font-size: 1.25rem;
+  font-size: 1.22rem;
+  margin-bottom: 18px;
 }
 
 .publication-list {
-  list-style: none;
+  list-style: decimal;
   margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 12px;
+  padding-left: 1.35rem;
 }
 
-.publication-card {
-  position: relative;
-  display: grid;
-  gap: 8px;
-  padding: 20px 56px 20px 22px;
-}
-
-.publication-card::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 18px;
-  bottom: 18px;
-  width: 4px;
-  border-radius: 0 8px 8px 0;
-  background: var(--teal);
-}
-
-.publication-card.highlight::before {
-  background: var(--coral);
+.publication-list li {
+  padding: 0 0 14px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+  color: #2d3c49;
 }
 
 .publication-authors {
-  color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.45;
+  color: #3c4c5a;
 }
 
 .publication-title {
@@ -393,16 +374,11 @@ h3 {
 
 .publication-venue {
   color: #314454;
-  font-size: 0.94rem;
-  line-height: 1.45;
 }
 
-.publication-card a {
-  position: absolute;
-  top: 18px;
-  right: 18px;
+.publication-list a {
+  white-space: nowrap;
   font-weight: 800;
-  font-size: 0.82rem;
 }
 
 .timeline {
@@ -583,16 +559,6 @@ h3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .publication-year {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .publication-year h3 {
-    position: static;
-    margin-bottom: 0;
-  }
-
   .closing-actions {
     justify-content: flex-start;
   }
@@ -642,15 +608,6 @@ h3 {
 
   .award-list {
     columns: 1;
-  }
-
-  .publication-card {
-    padding-right: 22px;
-  }
-
-  .publication-card a {
-    position: static;
-    width: fit-content;
   }
 
   .lookup-row {
