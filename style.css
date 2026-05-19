@@ -968,6 +968,19 @@ h3 {
   font-size: 1.14rem;
 }
 
+.publication-award {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 6px;
+  padding: 3px 8px;
+  border: 1px solid rgba(200, 86, 66, 0.22);
+  border-radius: 999px;
+  color: #b83724;
+  background: rgba(200, 86, 66, 0.1);
+  font-size: 0.96em;
+  font-weight: 850;
+}
+
 .publication-list a {
   white-space: nowrap;
   font-weight: 800;
