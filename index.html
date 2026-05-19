@@ -17,7 +17,7 @@
         <a href="#education">Education</a>
         <a href="#awards">Awards</a>
         <a href="#experience">Experience</a>
-        <a href="visitors.html">Visitor Map</a>
+        <a href="#visitor-globe">Visitor Globe</a>
       </div>
     </nav>
   </header>
@@ -62,6 +62,44 @@
         <div class="fact-card">
           <span class="fact-number">EDA</span>
           <span class="fact-label">Custom IC, Cell, CIM, AI4EDA</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="visitor-globe" class="section-band visitor-globe-band">
+      <div class="container visitor-globe-layout">
+        <div class="section-heading">
+          <p class="eyebrow">Visitor Globe</p>
+          <h2>Where visitors arrive from</h2>
+          <p class="section-summary">
+            GitHub Pages is static, so the site cannot store historical visitor IPs by itself. This module can show the
+            current visitor's public network location; cumulative global visits can be connected later with an analytics
+            service.
+          </p>
+          <div class="visitor-actions">
+            <button class="button primary" type="button" data-globe-lookup>Show my visit</button>
+            <a class="button secondary" href="visitors.html">Open visitor page</a>
+          </div>
+        </div>
+
+        <div class="visitor-globe-card" aria-label="Interactive visitor globe">
+          <div class="globe-visual" aria-hidden="true">
+            <span class="globe-grid vertical one"></span>
+            <span class="globe-grid vertical two"></span>
+            <span class="globe-grid horizontal one"></span>
+            <span class="globe-grid horizontal two"></span>
+            <span class="globe-pulse"></span>
+            <span class="globe-pin" data-globe-pin></span>
+          </div>
+          <div class="globe-info">
+            <h3>Live lookup</h3>
+            <p class="privacy-note">
+              Click the button to estimate your current public IP location. The result is displayed locally in this
+              browser session.
+            </p>
+            <p class="status-line" data-globe-status>Waiting for a visitor lookup.</p>
+            <div class="lookup-result compact" data-globe-result aria-live="polite"></div>
+          </div>
         </div>
       </div>
     </section>
@@ -355,5 +393,58 @@
       <a href="#top">Back to top</a>
     </div>
   </footer>
+
+  <script>
+    const globeLookupButton = document.querySelector("[data-globe-lookup]");
+    const globeStatus = document.querySelector("[data-globe-status]");
+    const globeResult = document.querySelector("[data-globe-result]");
+    const globePin = document.querySelector("[data-globe-pin]");
+
+    function appendGlobeRow(label, value) {
+      const row = document.createElement("div");
+      const rowLabel = document.createElement("span");
+      const rowValue = document.createElement("strong");
+      row.className = "lookup-row";
+      rowLabel.textContent = label;
+      rowValue.textContent = value || "Unavailable";
+      row.append(rowLabel, rowValue);
+      globeResult.append(row);
+    }
+
+    function placeGlobePin(latitude, longitude) {
+      const lat = Number(latitude);
+      const lon = Number(longitude);
+      if (!Number.isFinite(lat) || !Number.isFinite(lon)) return;
+
+      const left = ((lon + 180) / 360) * 100;
+      const top = ((90 - lat) / 180) * 100;
+      globePin.style.left = `${Math.max(6, Math.min(94, left))}%`;
+      globePin.style.top = `${Math.max(8, Math.min(92, top))}%`;
+      globePin.classList.add("is-visible");
+    }
+
+    globeLookupButton.addEventListener("click", async () => {
+      globeStatus.textContent = "Looking up this visitor's public network location...";
+      globeResult.innerHTML = "";
+      globeLookupButton.disabled = true;
+
+      try {
+        const response = await fetch("https://ipapi.co/json/");
+        if (!response.ok) throw new Error("Lookup failed");
+
+        const data = await response.json();
+        const locationLabel = [data.city, data.region, data.country_name].filter(Boolean).join(", ");
+        appendGlobeRow("Estimated location", locationLabel);
+        appendGlobeRow("Public IP", data.ip);
+        appendGlobeRow("Network", data.org);
+        placeGlobePin(data.latitude, data.longitude);
+        globeStatus.textContent = "Visitor location placed on the globe.";
+      } catch (error) {
+        globeStatus.textContent = "Lookup failed. The external IP lookup service may be blocked or unavailable.";
+      } finally {
+        globeLookupButton.disabled = false;
+      }
+    });
+  </script>
 </body>
 </html>
