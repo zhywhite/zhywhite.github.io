@@ -819,7 +819,7 @@ h3 {
 .research-item {
   position: relative;
   overflow: hidden;
-  padding: 24px;
+  padding: 26px;
   transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
 }
 
@@ -833,8 +833,13 @@ h3 {
   display: inline-flex;
   margin-bottom: 16px;
   color: var(--coral);
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   font-weight: 850;
+}
+
+.research-item h3 {
+  font-size: 1.36rem;
+  line-height: 1.32;
 }
 
 .research-item::after {
@@ -859,6 +864,11 @@ h3 {
 .timeline-item p {
   margin-bottom: 0;
   color: var(--muted);
+}
+
+.research-item p {
+  font-size: 1.08rem;
+  line-height: 1.72;
 }
 
 .publication-groups {
@@ -987,17 +997,31 @@ h3 {
   font-weight: 800;
 }
 
+#experience .timeline-date {
+  font-size: 0.94rem;
+}
+
+#experience .timeline-item h3 {
+  font-size: 1.38rem;
+}
+
+#experience .timeline-item p {
+  font-size: 1.1rem;
+}
+
 .award-list {
   margin: 0;
   padding: 0;
   list-style: none;
   columns: 2;
   column-gap: 36px;
+  font-size: 1.12rem;
+  line-height: 1.72;
 }
 
 .award-list li {
   break-inside: avoid;
-  margin: 0 0 12px;
+  margin: 0 0 14px;
   padding-left: 18px;
   color: #344554;
   position: relative;
