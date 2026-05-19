@@ -866,6 +866,14 @@ h3 {
   gap: 48px;
 }
 
+#publications .section-heading .eyebrow {
+  font-size: 1.04rem;
+}
+
+#publications .section-heading h2 {
+  font-size: 3.95rem;
+}
+
 .publication-group {
   border-top: 1px solid var(--line);
   padding-top: 26px;
@@ -876,8 +884,8 @@ h3 {
   align-items: center;
   gap: 10px;
   color: var(--coral);
-  font-size: 1.48rem;
-  margin-bottom: 18px;
+  font-size: 1.82rem;
+  margin-bottom: 22px;
 }
 
 .publication-group h3::before {
@@ -894,15 +902,15 @@ h3 {
   list-style: none;
   margin: 0;
   padding-left: 0;
-  font-size: 1.06rem;
-  line-height: 1.7;
+  font-size: 1.22rem;
+  line-height: 1.72;
 }
 
 .publication-list li {
   counter-increment: publication;
   position: relative;
-  padding: 0 0 14px 3.75rem;
-  margin-bottom: 14px;
+  padding: 0 0 18px 5.65rem;
+  margin-bottom: 18px;
   border-bottom: 1px solid var(--line);
   color: #2d3c49;
   transition: background 0.18s ease, transform 0.18s ease;
@@ -913,20 +921,20 @@ h3 {
   left: 0;
   top: 0.1rem;
   display: inline-flex;
-  min-width: 3rem;
+  min-width: 4.8rem;
   color: var(--coral);
-  font-size: 0.92rem;
+  font-size: 1.08rem;
   font-weight: 850;
   line-height: 1.45;
   text-transform: uppercase;
 }
 
 .conference-list li::before {
-  content: "C." counter(publication);
+  content: "【C." counter(publication) "】";
 }
 
 .journal-list li::before {
-  content: "J." counter(publication);
+  content: "【J." counter(publication) "】";
 }
 
 .publication-list li:hover {
@@ -936,17 +944,18 @@ h3 {
 
 .publication-authors {
   color: #3c4c5a;
-  font-size: 1.02rem;
+  font-size: 1.14rem;
 }
 
 .publication-title {
+  font-size: 1.25rem;
   font-weight: 760;
   line-height: 1.55;
 }
 
 .publication-venue {
   color: #314454;
-  font-size: 1.02rem;
+  font-size: 1.14rem;
 }
 
 .publication-list a {
@@ -1252,20 +1261,24 @@ h3 {
   }
 
   .publication-list {
-    font-size: 1rem;
+    font-size: 1.12rem;
   }
 
   .publication-list li {
-    padding-left: 3.25rem;
+    padding-left: 5.05rem;
   }
 
   .publication-group h3 {
-    font-size: 1.32rem;
+    font-size: 1.58rem;
   }
 
   .publication-authors,
   .publication-venue {
-    font-size: 0.97rem;
+    font-size: 1.08rem;
+  }
+
+  .publication-title {
+    font-size: 1.16rem;
   }
 
   .lookup-row strong {
