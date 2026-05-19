@@ -840,20 +840,43 @@ h3 {
 }
 
 .publication-list {
-  list-style: decimal;
+  counter-reset: publication;
+  list-style: none;
   margin: 0;
-  padding-left: 1.35rem;
+  padding-left: 0;
   font-size: 1.06rem;
   line-height: 1.7;
 }
 
 .publication-list li {
+  counter-increment: publication;
   position: relative;
-  padding: 0 0 14px;
+  padding: 0 0 14px 3.75rem;
   margin-bottom: 14px;
   border-bottom: 1px solid var(--line);
   color: #2d3c49;
   transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.publication-list li::before {
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  display: inline-flex;
+  min-width: 3rem;
+  color: var(--coral);
+  font-size: 0.92rem;
+  font-weight: 850;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.conference-list li::before {
+  content: "C." counter(publication);
+}
+
+.journal-list li::before {
+  content: "J." counter(publication);
 }
 
 .publication-list li:hover {
@@ -1180,6 +1203,10 @@ h3 {
 
   .publication-list {
     font-size: 1rem;
+  }
+
+  .publication-list li {
+    padding-left: 3.25rem;
   }
 
   .publication-group h3 {
