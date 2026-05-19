@@ -17,7 +17,7 @@
         <a href="#education">Education</a>
         <a href="#awards">Awards</a>
         <a href="#experience">Experience</a>
-        <a href="#visitor-globe">Visitor Globe</a>
+        <a href="#visitor-globe">Visitor Map</a>
       </div>
     </nav>
   </header>
@@ -75,8 +75,8 @@
     <section id="visitor-globe" class="section-band visitor-globe-band">
       <div class="container visitor-globe-layout">
         <div class="section-heading">
-          <p class="eyebrow">Visitor Globe</p>
-          <h2>Where visitors arrive from</h2>
+          <p class="eyebrow">Visitor Map</p>
+          <h2>Global visitor map</h2>
           <p class="section-summary">
             GitHub Pages is static, so the site cannot store historical visitor IPs by itself. This module can show the
             current visitor's public network location; cumulative global visits can be connected later with an analytics
@@ -88,14 +88,32 @@
           </div>
         </div>
 
-        <div class="visitor-globe-card" aria-label="Interactive visitor globe">
-          <div class="globe-visual" aria-hidden="true">
-            <span class="globe-grid vertical one"></span>
-            <span class="globe-grid vertical two"></span>
-            <span class="globe-grid horizontal one"></span>
-            <span class="globe-grid horizontal two"></span>
-            <span class="globe-pulse"></span>
-            <span class="globe-pin" data-globe-pin></span>
+        <div class="visitor-globe-card world-map-card" aria-label="Interactive visitor world map">
+          <div class="world-map-visual" aria-hidden="true">
+            <svg class="world-map-svg" viewBox="0 0 1000 500" focusable="false">
+              <path class="map-grid-line" d="M0 125H1000M0 250H1000M0 375H1000M125 0V500M250 0V500M375 0V500M500 0V500M625 0V500M750 0V500M875 0V500"></path>
+              <path class="map-equator" d="M0 250H1000"></path>
+              <g class="world-land">
+                <path d="M164 134C129 146 91 177 87 213C84 242 108 267 151 274C181 279 189 296 207 307C229 321 258 309 267 284C274 263 251 244 265 225C282 204 321 197 324 172C328 142 292 121 252 121C219 120 197 124 164 134Z"></path>
+                <path d="M263 252C240 268 239 304 259 333C276 357 289 382 281 415C275 439 292 462 316 451C341 439 350 399 346 368C342 333 331 306 314 284C299 264 283 249 263 252Z"></path>
+                <path d="M330 60C299 64 278 82 280 103C283 125 313 133 345 125C378 117 404 98 398 78C392 58 361 55 330 60Z"></path>
+                <path d="M456 150C430 154 407 171 407 194C407 214 429 226 463 221C497 216 528 203 525 178C522 154 490 145 456 150Z"></path>
+                <path d="M507 215C468 236 453 282 469 333C485 384 521 413 553 391C582 371 587 322 570 279C556 242 540 207 507 215Z"></path>
+                <path d="M560 130C528 137 506 160 511 189C516 219 559 230 607 222C644 216 656 238 686 246C725 256 768 238 794 210C821 181 802 150 758 139C720 130 697 112 653 112C617 112 593 123 560 130Z"></path>
+                <path d="M814 316C779 326 756 349 765 374C774 400 822 406 859 392C895 378 909 344 888 326C871 311 841 308 814 316Z"></path>
+                <path d="M890 405C875 411 866 423 873 433C881 445 904 444 918 433C933 421 926 406 909 403C902 402 896 403 890 405Z"></path>
+              </g>
+              <g class="map-city-dots">
+                <circle cx="214" cy="180" r="4"></circle>
+                <circle cx="292" cy="317" r="4"></circle>
+                <circle cx="488" cy="174" r="4"></circle>
+                <circle cx="542" cy="265" r="4"></circle>
+                <circle cx="670" cy="178" r="4"></circle>
+                <circle cx="828" cy="356" r="4"></circle>
+              </g>
+            </svg>
+            <span class="map-radar" data-globe-pulse></span>
+            <span class="map-pin" data-globe-pin></span>
           </div>
           <div class="globe-info">
             <h3>Live lookup</h3>
@@ -405,6 +423,7 @@
     const globeStatus = document.querySelector("[data-globe-status]");
     const globeResult = document.querySelector("[data-globe-result]");
     const globePin = document.querySelector("[data-globe-pin]");
+    const globePulse = document.querySelector("[data-globe-pulse]");
 
     function appendGlobeRow(label, value) {
       const row = document.createElement("div");
@@ -424,8 +443,12 @@
 
       const left = ((lon + 180) / 360) * 100;
       const top = ((90 - lat) / 180) * 100;
-      globePin.style.left = `${Math.max(6, Math.min(94, left))}%`;
-      globePin.style.top = `${Math.max(8, Math.min(92, top))}%`;
+      const mapLeft = `${Math.max(3, Math.min(97, left))}%`;
+      const mapTop = `${Math.max(5, Math.min(95, top))}%`;
+      globePin.style.left = mapLeft;
+      globePin.style.top = mapTop;
+      globePulse.style.left = mapLeft;
+      globePulse.style.top = mapTop;
       globePin.classList.add("is-visible");
     }
 
@@ -444,7 +467,7 @@
         appendGlobeRow("Public IP", data.ip);
         appendGlobeRow("Network", data.org);
         placeGlobePin(data.latitude, data.longitude);
-        globeStatus.textContent = "Visitor location placed on the globe.";
+        globeStatus.textContent = "Visitor location placed on the world map.";
       } catch (error) {
         globeStatus.textContent = "Lookup failed. The external IP lookup service may be blocked or unavailable.";
       } finally {

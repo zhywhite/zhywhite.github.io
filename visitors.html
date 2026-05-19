@@ -36,6 +36,32 @@
             <a class="button primary" href="index.html">Back to homepage</a>
             <a class="button secondary is-disabled" data-map-link href="#" aria-disabled="true">Open map search</a>
           </div>
+          <div class="world-map-visual visitor-page-map" aria-hidden="true">
+            <svg class="world-map-svg" viewBox="0 0 1000 500" focusable="false">
+              <path class="map-grid-line" d="M0 125H1000M0 250H1000M0 375H1000M125 0V500M250 0V500M375 0V500M500 0V500M625 0V500M750 0V500M875 0V500"></path>
+              <path class="map-equator" d="M0 250H1000"></path>
+              <g class="world-land">
+                <path d="M164 134C129 146 91 177 87 213C84 242 108 267 151 274C181 279 189 296 207 307C229 321 258 309 267 284C274 263 251 244 265 225C282 204 321 197 324 172C328 142 292 121 252 121C219 120 197 124 164 134Z"></path>
+                <path d="M263 252C240 268 239 304 259 333C276 357 289 382 281 415C275 439 292 462 316 451C341 439 350 399 346 368C342 333 331 306 314 284C299 264 283 249 263 252Z"></path>
+                <path d="M330 60C299 64 278 82 280 103C283 125 313 133 345 125C378 117 404 98 398 78C392 58 361 55 330 60Z"></path>
+                <path d="M456 150C430 154 407 171 407 194C407 214 429 226 463 221C497 216 528 203 525 178C522 154 490 145 456 150Z"></path>
+                <path d="M507 215C468 236 453 282 469 333C485 384 521 413 553 391C582 371 587 322 570 279C556 242 540 207 507 215Z"></path>
+                <path d="M560 130C528 137 506 160 511 189C516 219 559 230 607 222C644 216 656 238 686 246C725 256 768 238 794 210C821 181 802 150 758 139C720 130 697 112 653 112C617 112 593 123 560 130Z"></path>
+                <path d="M814 316C779 326 756 349 765 374C774 400 822 406 859 392C895 378 909 344 888 326C871 311 841 308 814 316Z"></path>
+                <path d="M890 405C875 411 866 423 873 433C881 445 904 444 918 433C933 421 926 406 909 403C902 402 896 403 890 405Z"></path>
+              </g>
+              <g class="map-city-dots">
+                <circle cx="214" cy="180" r="4"></circle>
+                <circle cx="292" cy="317" r="4"></circle>
+                <circle cx="488" cy="174" r="4"></circle>
+                <circle cx="542" cy="265" r="4"></circle>
+                <circle cx="670" cy="178" r="4"></circle>
+                <circle cx="828" cy="356" r="4"></circle>
+              </g>
+            </svg>
+            <span class="map-radar" data-visitor-pulse></span>
+            <span class="map-pin" data-visitor-pin></span>
+          </div>
         </div>
 
         <aside class="visitor-panel" aria-labelledby="lookup-title">
@@ -90,10 +116,28 @@
     const statusLine = document.querySelector("[data-status]");
     const result = document.querySelector("[data-result]");
     const mapLink = document.querySelector("[data-map-link]");
+    const visitorPin = document.querySelector("[data-visitor-pin]");
+    const visitorPulse = document.querySelector("[data-visitor-pulse]");
 
     function showRow(label, value) {
       const safeValue = value || "Unavailable";
       return `<div class="lookup-row"><span>${label}</span><strong>${safeValue}</strong></div>`;
+    }
+
+    function placeVisitorPin(latitude, longitude) {
+      const lat = Number(latitude);
+      const lon = Number(longitude);
+      if (!Number.isFinite(lat) || !Number.isFinite(lon)) return;
+
+      const left = ((lon + 180) / 360) * 100;
+      const top = ((90 - lat) / 180) * 100;
+      const mapLeft = `${Math.max(3, Math.min(97, left))}%`;
+      const mapTop = `${Math.max(5, Math.min(95, top))}%`;
+      visitorPin.style.left = mapLeft;
+      visitorPin.style.top = mapTop;
+      visitorPulse.style.left = mapLeft;
+      visitorPulse.style.top = mapTop;
+      visitorPin.classList.add("is-visible");
     }
 
     lookupButton.addEventListener("click", async () => {
@@ -123,6 +167,7 @@
           mapLink.classList.remove("is-disabled");
           mapLink.removeAttribute("aria-disabled");
         }
+        placeVisitorPin(data.latitude, data.longitude);
 
         statusLine.textContent = "Lookup complete. This result is shown only in your browser.";
       } catch (error) {
