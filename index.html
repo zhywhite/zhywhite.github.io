@@ -1,241 +1,370 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haoyi Zhang - Personal Homepage</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="sidebar.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Haoyi Zhang, Ph.D. candidate at Peking University. Research in Analog EDA, Custom IC EDA, and AI4EDA.">
+  <title>Haoyi Zhang | Personal Homepage</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="sidebar">
-        <img class="avatar" src="assets/photo.jpeg" alt="Avatar">
-        <h1>Haoyi Zhang</h1>
-        <p>Ph.D. Candidate @ PKU <br> Research Area: Analog EDA,<br>Custom IC EDA, AI4EDA</p>
-
-        <div class="contact">
-            <ul>
-                <li>Email: hy.zhang@stu.pku.edu.cn</li>
-                <li>GoogleScholar: <a href="https://scholar.google.com/citations?hl=en&user=K_7c6hkAAAAJ" target="_blank">HaoyiZhang</a></li>
-                <li>GitHub: <a href="https://github.com/zhywhite" target="_blank">zhywhite</a></li>
-                <!-- More contact info -->
-            </ul> 
-        </div>
-        <a href="assets/张昊懿.pdf" download style="color:#4f8cff;">Download CV</a>
-    </div>
-    <div class="main-content">
-    <nav>
-        <ul>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#publications">Publications</a></li>
-            <li><a href="#awards">Awards</a></li>
-            <li><a href="#interns">Internships</a></li>
-            <li><a href="#resume">Resume</a></li>
-        </ul>
+  <header class="site-header">
+    <nav class="nav-shell" aria-label="Primary navigation">
+      <a class="site-mark" href="#top" aria-label="Haoyi Zhang homepage">Haoyi Zhang</a>
+      <div class="nav-links">
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#education">Education</a>
+        <a href="#awards">Awards</a>
+        <a href="#experience">Experience</a>
+        <a href="visitors.html">Visitor Map</a>
+      </div>
     </nav>
-    <!-- <section id="about">
-        <h2>About Me</h2>
-        <p>Write your personal introduction here.</p>
-    </section> -->
+  </header>
 
-<section id="education">
-  <h2>Education</h2>
-  <div class="edu-item">
-    <h3>Peking University</h3>
-    <p><strong>2022 – Present</strong> | Ph.D. Candidate, Integrated Circuits</p>
-  </div>
-  <div class="edu-item">
-    <h3>Beihang University</h3>
-    <p><strong>2018 – 2022</strong> | Bachelor, Microelectronics</p>
-  </div>
-</section>
-
-    <section id="publications">
-        <h2>Publications</h2>
-
-        <h3>2026</h3>
-        <ol>
-          <li><b>Haoyi Zhang</b>, Kairong Guo, Bojie Zhang, Yibo Lin, Runsheng Wang
-            <i>"FusionCell: Cross-Attentive Fusion of Layout Geometry and Netlist Topology for Standard-Cell Performance Prediction"</i>.
-            <b>ICML</b>, Korea, 2026 [<a href="paper/FusionCell.pdf" target="_blank">PDF</a>]
-          </li>
-          <li>Bingyang Liu†, Haoning Jiang‡, <b>Haoyi Zhang</b>, Xiaohan Gao, Zichen Kong, Xiyuan Tang, David Z. Pan, Yibo Lin
-            <i>"GRAIN: A Design-Intent-Driven Analog Layout Migration Framework"</i>.
-            <b>ISEDA</b>, Singapore, 2026 [<a href="paper/GRAIN.pdf" target="_blank">PDF</a>]
-          </li>
-           <li> <b>Haoyi Zhang</b>, Weijian Fan, Xiaohan Gao, Bingyang Liu, Runsheng Wang, Yibo Lin
-            <i>"PANDA: An LLM-Enhanced Performance-Driven Analog Design Framework Bridging Design Intent and Layout Generation" | (invited paper)</i>.
-            <b> Design Automation Conference</b>, LongBeach, USA, 2026 [<a href="paper/PANDA.pdf" target="_blank">PDF</a>]
-          </li>
-           <li> Wenbo An, Kairong Guo, <b>Haoyi Zhang</b>, Yibo Lin
-            <i>"EPiCell: ElectroPhysical CoModeling for Standard Cell PPA Prediction"</i>.
-            <b> Design Automation Conference</b>, LongBeach, USA, 2026 [<a href="paper/EPiCell.pdf" target="_blank">PDF</a>]
-          </li>
-          <li>Bingyang Liu†, Haoning Jiang‡, <b>Haoyi Zhang</b>, Xiaohan Gao, Zichen Kong, Xiyuan Tang, David Z. Pan, Yibo Lin
-            <i>"GRAIN: A Design-Intent-Driven Analog Layout Migration Framework"</i>.
-            <b>DATE</b>, Verona, Italy, 2026 [<a href="paper/GRAIN2.pdf" target="_blank">PDF</a>]
-          </li>
-          <li>Weijian Fan*, <b>Haoyi Zhang*</b>, Weibin Lin, Runsheng Wang, Yibo Lin
-            <i>"MOSTAR: Multi-Stage Hierarchical Bayesian Optimization for Substructure-Aware High-Dimensional Analog Circuit Sizing"</i>.
-            <b>Asia and South Pacific Design Automation Conference</b>, HongKong, China, 2026, co-first-author [<a href="paper/MOSTAR.pdf" target="_blank">PDF</a>]
-          </li>
-        </ol>
-        
-        <h3>2025</h3>
-        <ol>
-          <!-- EDA – Design Space Exploration -->
-          <li>Haikang Diao*, <b>Haoyi Zhang*</b>, Jiahao Song, Haoyang Luo, Yibo Lin, Runsheng Wang, Yuan Wang, Xiyuan Tang.
-            <i>"SEGA-DCIM: Design Space Exploration-Guided Automatic Digital CIM Compiler with Multiple Precision Support"</i>.
-            <b>Design, Automation & Test in Europe</b>, Lyons, France, 2025, co-first-author [<a href="paper/SEGA-DCIM.pdf" target="_blank">PDF</a>]
-          </li>
-          <!-- EDA – AI4EDA -->
-          <li><b>Haoyi Zhang</b>, Shizhao Sun, Yibo Lin, Runsheng Wang, Jiang Bian.
-            <i>"AnalogXpert: Automating Analog Topology Synthesis by Incorporating Circuit Design Expertise into Large Language Models"</i>.
-            <b>ISEDA</b>, HongKong, China, 2025 [<a href="paper/AnalogXpert.pdf" target="_blank">PDF</a>]
-          </li>
-          <li>Bingyang Liu, <b>Haoyi Zhang</b>, Xiaohan Gao, Xiyuan Tang, Yibo Lin, Runsheng Wang, Ru Huang.
-            <i>"LayoutCopilot: LLM-Empowered Analog Layout Design towards Enhanced Human-Machine Interaction"</i>.
-            <b>ISCAS</b>, London, UK, 2025 [<a href="paper/ISCAS2025_LLMAnalog.pdf" target="_blank">PDF</a>]
-          </li>
-          <li>Bingyang Liu*, <b>Haoyi Zhang*</b>, Xiaohan Gao, Zichen Kong, Xiyuan Tang, Yibo Lin, Runsheng Wang, Ru Huang.
-            <i>"LayoutCopilot: An LLM-powered Multi-agent Collaborative Framework for Interactive Analog Layout Design"</i>.
-            <b>TCAD</b> 2025, co-first-author [<a href="paper/2406.18873v3.pdf" target="_blank">PDF</a>]
-          </li>
-          <!-- EDA – Standard Cell -->
-          <li>Kairong Guo, Xiaohan Gao, <b>Haoyi Zhang</b>, Yibo Lin, Runsheng Wang.
-            <i>"Multi-Row Standard Cell Layout Synthesis with Enhanced Scalability"</i>.
-            <b>ISEDA</b>, HongKong, China, 2025 [<a href="paper/CELL_ISEDA2025_Guo.pdf" target="_blank">PDF</a>]
-          </li>
-          <!-- <li>Kairong Guo, Xiaohan Gao, <b>Haoyi Zhang</b>, etc.
-            <i>"Exploring Better Intra-Cell Routability for Layout Synthesis of Multi-Row Standard Cells"</i>.
-            ASP-DAC, Tokyo, Japan, 2025, Invited paper
-          </li> -->
-        </ol>
-
-        <h3>2024</h3>
-        <ol>
-          <!-- EDA – Analog CAD -->
-          <li><b>Haoyi Zhang</b>, Xiaohan Gao, Zilong Shen, Jiahao Song,
-Xiaoxu Cheng, Xiyuan Tang, Yibo Lin, Runsheng Wang, Ru Huang.
-            <i>"SAGERoute 2.0: Hierarchical Analog and Mixed Signal Routing Considering Versatile Routing Scenarios"</i>.
-            <b>Design, Automation & Test in Europe</b>, Valencia, Spain, 2024 [<a href="paper/ANALOG_DATE2024_Zhang.pdf" target="_blank">PDF</a>]
-          </li>
-          <li>Xiaohan Gao, <b>Haoyi Zhang</b>, Bingyang Liu, Yibo Lin, Runsheng Wang, Ru Huang.
-            <i>"Joint Placement Optimization for Hierarchical Analog/Mixed-Signal Circuits"</i>.
-            	<b>International Conference on Computer-Aided Design</b>, New Jersey, USA, 2024 [<a href="paper/ANALOG_ICCAD2024_Gao.pdf" target="_blank">PDF</a>]
-          </li>
-          <!-- EDA – Design Space Exploration -->
-          <li><b>Haoyi Zhang</b>, Jiahao Song, Xiaohan Gao, Xiyuan Tang, Yibo Lin, Runsheng Wang, Ru Huang.
-            <i>"EasyACIM: An End-to-End Automated Analog CIM with Synthesizable Architecture and Agile Design Space Exploration"</i>.
-            <b>Design Automation Conference</b>, San Francisco, USA, 2024 [<a href="paper/2404.13062v1.pdf" target="_blank">PDF</a>]
-          </li>
-
-          <!-- EDA – AI4EDA -->
-          <li>Lei Chen, Yiqi Chen, Zhufei Chu, etc. (<b>Haoyi Zhang</b>, co-author)
-            <i>"The dawn of AI-native EDA: Promises and challenges of large circuit models"</i>.
-            <b>Science China</b> 2024 [<a href="paper/2403.07257v2.pdf" target="_blank">PDF</a>]
-          </li>
-
-          <li>Xiaohan Gao, <b>Haoyi Zhang</b>, Siyuan Ye, Mingjie Liu, David Z.Pan, Linxiao Shen, Runsheng Wang, Yibo Lin, Ru Huang.
-            <i>"Post-Layout Simulation Driven Analog Circuit Sizing"</i>.
-            <b>Science China</b> 2024 [<a href="paper/2310.14049v1.pdf" target="_blank">PDF</a>]
-          </li>
-
-          <!-- Circuit Design -->
-          <li><b>Haoyi Zhang</b>, Jiahao Song, Haoyang Luo, Xiyuan Tang, Yuan Wang, Runsheng Wang, Ru Huang.
-            <i>"A 266F<sup>2</sup> Ultra Stable Differential NOR-Structured Physically Unclonable Function with &lt; 6×10<sup>−9</sup> Bit Error Rate Through Efficient Redundancy Strategy"</i>.
-            <b>TCAS-II</b> 2024 [<a href="paper/A_266F2_Ultra_Stable_Differential_NOR-Structured_Physically_Unclonable_Function_With_lt_610-9_Bit_Error_Rate_Through_Efficient_Redundancy_Strategy.pdf" target="_blank">PDF</a>]
-          </li>
-
-        </ol>
-
-        <h3>2023</h3>
-        <ol>
-          <!-- EDA – Analog CAD -->
-          <li><b>Haoyi Zhang*</b>, Xiaohan Gao*, Haoyang Luo, Jiahao Song, Xiyuan Tang, Junhua Liu, Yibo Lin, Runsheng Wang, Ru Huang.
-            <i>"SAGERoute: Synergistic Analog Routing Considering Geometric and Electrical Constraints with Manual Design Compatibility"</i>.
-            <b>Design, Automation & Test in Europe 2023 Best Paper Award</b> [<a href="paper/SAGERoute_Synergistic_Analog_Routing_Considering_Geometric_and_Electrical_Constraints_with_Manual_Design_Compatibility.pdf" target="_blank">PDF</a>]
-          </li>
-
-          <li><b>Haoyi Zhang</b>, Xiaohan Gao, Yibo Lin, Runsheng Wang, Ru Huang.
-            <i>"Multi-Scenario Analog and Mixed-Signal Circuit Routing with Agile Human Interaction"</i>.
-            <b>ISEDA</b>, Nanjing, China, 2023 [<a href="paper/Multi-Scenario_Analog_and_Mixed-Signal_Circuit_Routing_with_Agile_Human_Interaction_Extended_Abstract.pdf" target="_blank">PDF</a>]
-          </li>
-          <!-- Circuit Design -->
-          <li>Jiahao Song, Xiyuan Tang, Haoyang Luo, <b>Haoyi Zhang</b>, Xin Qiao, Zixuan Sun, Xiangxing Yang, Yuan Wang, Runsheng Wang, Ru Huang.
-            <i>"A Calibration-Free 15-level/Cell eDRAM Computing-in-Memory Macro with 3T1C Current-Programmed Dynamic-Cascoded MLC achieving 233-to-304-TOPS/W 4b MAC"</i>.
-            <b>CICC</b>, San Antonio, TX, USA 2023 [<a href="paper/A_Calibration-Free_15-level_Cell_eDRAM_Computing-in-Memory_Macro_with_3T1C_Current-Programmed_Dynamic-Cascoded_MLC_achieving_233-to-304-TOPS_W_4b_MAC.pdf" target="_blank">PDF</a>]
-          </li>
-
-          <li>Jiahao Song, Xiyuan Tang, Haoyang Luo, <b>Haoyi Zhang</b>, Xin Qiao, Zixuan Sun, Xiangxing Yang, Zihan Wu, Yuan Wang, Runsheng Wang, Ru Huang.
-            <i>"A 4-bit Calibration-Free Computing-In-Memory Macro With 3T1C Current-Programed Dynamic-Cascode Multi-Level-Cell eDRAM"</i>.
-            <b>JSSC</b> 2023 [<a href="paper/A_4-bit_Calibration-Free_Computing-In-Memory_Macro_With_3T1C_Current-Programed_Dynamic-Cascode_Multi-Level-Cell_eDRAM.pdf" target="_blank">PDF</a>]
-          </li>
-
-        </ol>
-
-        <h3>2022</h3>
-        <ol>
-          <!-- EDA – Analog CAD -->
-          <li>Xiaohan Gao*, <b>Haoyi Zhang*</b>, Mingjie Liu, Linxiao Shen, David Z.Pan, Yibo Lin, Runsheng Wang, Ru Huang.
-            <i>"Interactive Analog Layout Editing with Instant Placement and Routing Legalization"</i>.
-            <b>TCAD</b> 2022, co-first-author [<a href="paper/Interactive_Analog_Layout_Editing_With_Instant_Placement_and_Routing_Legalization.pdf" target="_blank">PDF</a>]
-          </li>
-
-          <li>Yibo Lin, Xiaohan Gao, <b>Haoyi Zhang</b>, etc.
-            <i>"Intelligent and Interactive Analog Layout Design Automation"</i>.
-            <b>ICSICT</b>, Nanjing, China, 2022 [<a href="paper/ANALOG_ICSICT2022_Lin.pdf" target="_blank">PDF</a>]
-          </li>
-
-        </ol>
+  <main id="top">
+    <section class="profile-hero section-band">
+      <div class="container hero-grid">
+        <div class="profile-media">
+          <img src="assets/photo.jpeg" alt="Portrait of Haoyi Zhang" class="profile-photo">
+        </div>
+        <div class="profile-copy">
+          <p class="eyebrow">Ph.D. Candidate, Peking University</p>
+          <h1>Haoyi Zhang</h1>
+          <p class="lead">
+            I work on analog EDA, custom IC EDA, and AI4EDA, with a focus on practical layout generation,
+            routing, circuit sizing, and learning-based design automation.
+          </p>
+          <div class="hero-actions" aria-label="Contact and profile links">
+            <a class="button primary" href="assets/张昊懿.pdf" download>Download CV</a>
+            <a class="button secondary" href="mailto:hy.zhang@stu.pku.edu.cn">Email</a>
+            <a class="button secondary" href="https://scholar.google.com/citations?hl=en&amp;user=K_7c6hkAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+            <a class="button secondary" href="https://github.com/zhywhite" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </div>
+      </div>
     </section>
-    <section id="awards">
-        <h2>Awards</h2>
-        <ul>
-            <li><b>DATE Best Paper Award, first author, 2023 </b> </li>
-            <li><b>National Scholarship, Peking University, 2024</b> </li>
-            <li>Merit Student, Peking University, 2024</li>
-            <li>Industry Contribution Award, Department of Design Automation and Computing Systems, Peking University (only two recipients per year in the department), 2023</li>
-            <li>Outstanding Research Award, Peking University, 2023</li>
-            <li>First Prize, Huawei Scholarship, 2023 </li>
-            <li>Third Prize, Huawei Scholarship, 2022 </li>
-            <li>Outstanding Graduate, Beihang University, 2022</li>
-            <li>First Prize Scholarship(8%), Beihang University, 2021</li>
-            <li>Merit Student, Beihang University, 2021</li>
-            <li>Second Prize, EDA Elite Design Challenge, 2021&2022 </li>
-            <li>Empyrean Enterprise Special Award, EDA Elite Design Challenge, 2021</li>
+
+    <section class="quick-facts section-band">
+      <div class="container fact-grid" aria-label="Profile highlights">
+        <div class="fact-card">
+          <span class="fact-number">20+</span>
+          <span class="fact-label">Publications</span>
+        </div>
+        <div class="fact-card">
+          <span class="fact-number">1</span>
+          <span class="fact-label">DATE Best Paper Award</span>
+        </div>
+        <div class="fact-card">
+          <span class="fact-number">4</span>
+          <span class="fact-label">Research internships</span>
+        </div>
+        <div class="fact-card">
+          <span class="fact-number">EDA</span>
+          <span class="fact-label">Analog, Custom IC, AI4EDA</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="research" class="section-band">
+      <div class="container section-layout">
+        <div class="section-heading">
+          <p class="eyebrow">Research</p>
+          <h2>Building practical automation for analog and custom IC design</h2>
+        </div>
+        <div class="research-grid">
+          <article class="research-item">
+            <h3>Analog layout generation</h3>
+            <p>Layout synthesis, migration, editing, and interactive human-machine workflows for analog and mixed-signal design.</p>
+          </article>
+          <article class="research-item">
+            <h3>Routing and placement</h3>
+            <p>Hierarchical routing, placement optimization, and manual-design-compatible legalization for complex layout scenarios.</p>
+          </article>
+          <article class="research-item">
+            <h3>AI for EDA</h3>
+            <p>Large language models, multi-agent systems, and learning-based design intent modeling for circuit automation.</p>
+          </article>
+          <article class="research-item">
+            <h3>Performance prediction</h3>
+            <p>Geometry, netlist topology, and electro-physical co-modeling for standard-cell and circuit PPA prediction.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications" class="section-band alt-band">
+      <div class="container">
+        <div class="section-heading compact">
+          <p class="eyebrow">Selected Work</p>
+          <h2>Publications</h2>
+        </div>
+
+        <div class="publication-year">
+          <h3>2026</h3>
+          <ol class="publication-list">
+            <li class="publication-card">
+              <span class="publication-authors"><strong>Haoyi Zhang</strong>, Kairong Guo, Bojie Zhang, Yibo Lin, Runsheng Wang</span>
+              <span class="publication-title">FusionCell: Cross-Attentive Fusion of Layout Geometry and Netlist Topology for Standard-Cell Performance Prediction</span>
+              <span class="publication-venue"><strong>ICML</strong>, Korea, 2026</span>
+              <a href="paper/FusionCell.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            </li>
+            <li class="publication-card">
+              <span class="publication-authors">Bingyang Liu&dagger;, Haoning Jiang&Dagger;, <strong>Haoyi Zhang</strong>, Xiaohan Gao, Zichen Kong, Xiyuan Tang, David Z. Pan, Yibo Lin</span>
+              <span class="publication-title">GRAIN: A Design-Intent-Driven Analog Layout Migration Framework</span>
+              <span class="publication-venue"><strong>ISEDA</strong>, Singapore, 2026</span>
+              <a href="paper/GRAIN.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            </li>
+            <li class="publication-card">
+              <span class="publication-authors"><strong>Haoyi Zhang</strong>, Weijian Fan, Xiaohan Gao, Bingyang Liu, Runsheng Wang, Yibo Lin</span>
+              <span class="publication-title">PANDA: An LLM-Enhanced Performance-Driven Analog Design Framework Bridging Design Intent and Layout Generation</span>
+              <span class="publication-venue"><strong>Design Automation Conference</strong>, Long Beach, USA, 2026, invited paper</span>
+              <a href="paper/PANDA.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            </li>
+            <li class="publication-card">
+              <span class="publication-authors">Wenbo An, Kairong Guo, <strong>Haoyi Zhang</strong>, Yibo Lin</span>
+              <span class="publication-title">EPiCell: ElectroPhysical CoModeling for Standard Cell PPA Prediction</span>
+              <span class="publication-venue"><strong>Design Automation Conference</strong>, Long Beach, USA, 2026</span>
+              <a href="paper/EPiCell.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            </li>
+            <li class="publication-card">
+              <span class="publication-authors">Bingyang Liu&dagger;, Haoning Jiang&Dagger;, <strong>Haoyi Zhang</strong>, Xiaohan Gao, Zichen Kong, Xiyuan Tang, David Z. Pan, Yibo Lin</span>
+              <span class="publication-title">GRAIN: A Design-Intent-Driven Analog Layout Migration Framework</span>
+              <span class="publication-venue"><strong>DATE</strong>, Verona, Italy, 2026</span>
+              <a href="paper/GRAIN2.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            </li>
+            <li class="publication-card">
+              <span class="publication-authors">Weijian Fan*, <strong>Haoyi Zhang*</strong>, Weibin Lin, Runsheng Wang, Yibo Lin</span>
+              <span class="publication-title">MOSTAR: Multi-Stage Hierarchical Bayesian Optimization for Substructure-Aware High-Dimensional Analog Circuit Sizing</span>
+              <span class="publication-venue"><strong>Asia and South Pacific Design Automation Conference</strong>, Hong Kong, China, 2026, co-first-author</span>
+              <a href="paper/MOSTAR.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            </li>
+          </ol>
+        </div>
+
+        <div class="publication-year">
+          <h3>2025</h3>
+          <ol class="publication-list">
+            <li class="publication-card">
+              <span class="publication-authors">Haikang Diao*, <strong>Haoyi Zhang*</strong>, Jiahao Song, Haoyang Luo, Yibo Lin, Runsheng Wang, Yuan Wang, Xiyuan Tang</span>
+              <span class="publication-title">SEGA-DCIM: Design Space Exploration-Guided Automatic Digital CIM Compiler with Multiple Precision Support</span>
+              <span class="publication-venue"><strong>Design, Automation &amp; Test in Europe</strong>, Lyons, France, 2025, co-first-author</span>
+              <a href="paper/SEGA-DCIM.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            </li>
+            <li class="publication-card">
+              <span class="publication-authors"><strong>Haoyi Zhang</strong>, Shizhao Sun, Yibo Lin, Runsheng Wang, Jiang Bian</span>
+              <span class="publication-title">AnalogXpert: Automating Analog Topology Synthesis by Incorporating Circuit Design Expertise into Large Language Models</span>
+              <span class="publication-venue"><strong>ISEDA</strong>, Hong Kong, China, 2025</span>
+              <a href="paper/AnalogXpert.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            </li>
+            <li class="publication-card">
+              <span class="publication-authors">Bingyang Liu, <strong>Haoyi Zhang</strong>, Xiaohan Gao, Xiyuan Tang, Yibo Lin, Runsheng Wang, Ru Huang</span>
+              <span class="publication-title">LayoutCopilot: LLM-Empowered Analog Layout Design towards Enhanced Human-Machine Interaction</span>
+              <span class="publication-venue"><strong>ISCAS</strong>, London, UK, 2025</span>
+              <a href="paper/ISCAS2025_LLMAnalog.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            </li>
+            <li class="publication-card">
+              <span class="publication-authors">Bingyang Liu*, <strong>Haoyi Zhang*</strong>, Xiaohan Gao, Zichen Kong, Xiyuan Tang, Yibo Lin, Runsheng Wang, Ru Huang</span>
+              <span class="publication-title">LayoutCopilot: An LLM-powered Multi-agent Collaborative Framework for Interactive Analog Layout Design</span>
+              <span class="publication-venue"><strong>TCAD</strong>, 2025, co-first-author</span>
+              <a href="paper/2406.18873v3.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            </li>
+            <li class="publication-card">
+              <span class="publication-authors">Kairong Guo, Xiaohan Gao, <strong>Haoyi Zhang</strong>, Yibo Lin, Runsheng Wang</span>
+              <span class="publication-title">Multi-Row Standard Cell Layout Synthesis with Enhanced Scalability</span>
+              <span class="publication-venue"><strong>ISEDA</strong>, Hong Kong, China, 2025</span>
+              <a href="paper/CELL_ISEDA2025_Guo.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            </li>
+          </ol>
+        </div>
+
+        <div class="publication-year">
+          <h3>2024</h3>
+          <ol class="publication-list">
+            <li class="publication-card">
+              <span class="publication-authors"><strong>Haoyi Zhang</strong>, Xiaohan Gao, Zilong Shen, Jiahao Song, Xiaoxu Cheng, Xiyuan Tang, Yibo Lin, Runsheng Wang, Ru Huang</span>
+              <span class="publication-title">SAGERoute 2.0: Hierarchical Analog and Mixed Signal Routing Considering Versatile Routing Scenarios</span>
+              <span class="publication-venue"><strong>Design, Automation &amp; Test in Europe</strong>, Valencia, Spain, 2024</span>
+              <a href="paper/ANALOG_DATE2024_Zhang.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            </li>
+            <li class="publication-card">
+              <span class="publication-authors">Xiaohan Gao, <strong>Haoyi Zhang</strong>, Bingyang Liu, Yibo Lin, Runsheng Wang, Ru Huang</span>
+              <span class="publication-title">Joint Placement Optimization for Hierarchical Analog/Mixed-Signal Circuits</span>
+              <span class="publication-venue"><strong>International Conference on Computer-Aided Design</strong>, New Jersey, USA, 2024</span>
+              <a href="paper/ANALOG_ICCAD2024_Gao.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            </li>
+            <li class="publication-card">
+              <span class="publication-authors"><strong>Haoyi Zhang</strong>, Jiahao Song, Xiaohan Gao, Xiyuan Tang, Yibo Lin, Runsheng Wang, Ru Huang</span>
+              <span class="publication-title">EasyACIM: An End-to-End Automated Analog CIM with Synthesizable Architecture and Agile Design Space Exploration</span>
+              <span class="publication-venue"><strong>Design Automation Conference</strong>, San Francisco, USA, 2024</span>
+              <a href="paper/2404.13062v1.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            </li>
+            <li class="publication-card">
+              <span class="publication-authors">Lei Chen, Yiqi Chen, Zhufei Chu, etc. (<strong>Haoyi Zhang</strong>, co-author)</span>
+              <span class="publication-title">The dawn of AI-native EDA: Promises and challenges of large circuit models</span>
+              <span class="publication-venue"><strong>Science China</strong>, 2024</span>
+              <a href="paper/2403.07257v2.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            </li>
+            <li class="publication-card">
+              <span class="publication-authors">Xiaohan Gao, <strong>Haoyi Zhang</strong>, Siyuan Ye, Mingjie Liu, David Z. Pan, Linxiao Shen, Runsheng Wang, Yibo Lin, Ru Huang</span>
+              <span class="publication-title">Post-Layout Simulation Driven Analog Circuit Sizing</span>
+              <span class="publication-venue"><strong>Science China</strong>, 2024</span>
+              <a href="paper/2310.14049v1.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            </li>
+            <li class="publication-card">
+              <span class="publication-authors"><strong>Haoyi Zhang</strong>, Jiahao Song, Haoyang Luo, Xiyuan Tang, Yuan Wang, Runsheng Wang, Ru Huang</span>
+              <span class="publication-title">A 266F<sup>2</sup> Ultra Stable Differential NOR-Structured Physically Unclonable Function with &lt; 6&times;10<sup>-9</sup> Bit Error Rate Through Efficient Redundancy Strategy</span>
+              <span class="publication-venue"><strong>TCAS-II</strong>, 2024</span>
+              <a href="paper/A_266F2_Ultra_Stable_Differential_NOR-Structured_Physically_Unclonable_Function_With_lt_610-9_Bit_Error_Rate_Through_Efficient_Redundancy_Strategy.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            </li>
+          </ol>
+        </div>
+
+        <div class="publication-year">
+          <h3>2023</h3>
+          <ol class="publication-list">
+            <li class="publication-card highlight">
+              <span class="publication-authors"><strong>Haoyi Zhang*</strong>, Xiaohan Gao*, Haoyang Luo, Jiahao Song, Xiyuan Tang, Junhua Liu, Yibo Lin, Runsheng Wang, Ru Huang</span>
+              <span class="publication-title">SAGERoute: Synergistic Analog Routing Considering Geometric and Electrical Constraints with Manual Design Compatibility</span>
+              <span class="publication-venue"><strong>Design, Automation &amp; Test in Europe 2023 Best Paper Award</strong></span>
+              <a href="paper/SAGERoute_Synergistic_Analog_Routing_Considering_Geometric_and_Electrical_Constraints_with_Manual_Design_Compatibility.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            </li>
+            <li class="publication-card">
+              <span class="publication-authors"><strong>Haoyi Zhang</strong>, Xiaohan Gao, Yibo Lin, Runsheng Wang, Ru Huang</span>
+              <span class="publication-title">Multi-Scenario Analog and Mixed-Signal Circuit Routing with Agile Human Interaction</span>
+              <span class="publication-venue"><strong>ISEDA</strong>, Nanjing, China, 2023</span>
+              <a href="paper/Multi-Scenario_Analog_and_Mixed-Signal_Circuit_Routing_with_Agile_Human_Interaction_Extended_Abstract.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            </li>
+            <li class="publication-card">
+              <span class="publication-authors">Jiahao Song, Xiyuan Tang, Haoyang Luo, <strong>Haoyi Zhang</strong>, Xin Qiao, Zixuan Sun, Xiangxing Yang, Yuan Wang, Runsheng Wang, Ru Huang</span>
+              <span class="publication-title">A Calibration-Free 15-level/Cell eDRAM Computing-in-Memory Macro with 3T1C Current-Programmed Dynamic-Cascoded MLC achieving 233-to-304-TOPS/W 4b MAC</span>
+              <span class="publication-venue"><strong>CICC</strong>, San Antonio, TX, USA, 2023</span>
+              <a href="paper/A_Calibration-Free_15-level_Cell_eDRAM_Computing-in-Memory_Macro_with_3T1C_Current-Programmed_Dynamic-Cascoded_MLC_achieving_233-to-304-TOPS_W_4b_MAC.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            </li>
+            <li class="publication-card">
+              <span class="publication-authors">Jiahao Song, Xiyuan Tang, Haoyang Luo, <strong>Haoyi Zhang</strong>, Xin Qiao, Zixuan Sun, Xiangxing Yang, Zihan Wu, Yuan Wang, Runsheng Wang, Ru Huang</span>
+              <span class="publication-title">A 4-bit Calibration-Free Computing-In-Memory Macro With 3T1C Current-Programed Dynamic-Cascode Multi-Level-Cell eDRAM</span>
+              <span class="publication-venue"><strong>JSSC</strong>, 2023</span>
+              <a href="paper/A_4-bit_Calibration-Free_Computing-In-Memory_Macro_With_3T1C_Current-Programed_Dynamic-Cascode_Multi-Level-Cell_eDRAM.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            </li>
+          </ol>
+        </div>
+
+        <div class="publication-year">
+          <h3>2022</h3>
+          <ol class="publication-list">
+            <li class="publication-card">
+              <span class="publication-authors">Xiaohan Gao*, <strong>Haoyi Zhang*</strong>, Mingjie Liu, Linxiao Shen, David Z. Pan, Yibo Lin, Runsheng Wang, Ru Huang</span>
+              <span class="publication-title">Interactive Analog Layout Editing with Instant Placement and Routing Legalization</span>
+              <span class="publication-venue"><strong>TCAD</strong>, 2022, co-first-author</span>
+              <a href="paper/Interactive_Analog_Layout_Editing_With_Instant_Placement_and_Routing_Legalization.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            </li>
+            <li class="publication-card">
+              <span class="publication-authors">Yibo Lin, Xiaohan Gao, <strong>Haoyi Zhang</strong>, etc.</span>
+              <span class="publication-title">Intelligent and Interactive Analog Layout Design Automation</span>
+              <span class="publication-venue"><strong>ICSICT</strong>, Nanjing, China, 2022</span>
+              <a href="paper/ANALOG_ICSICT2022_Lin.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section-band">
+      <div class="container section-layout">
+        <div class="section-heading">
+          <p class="eyebrow">Background</p>
+          <h2>Education</h2>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <span class="timeline-date">2022 - Present</span>
+            <h3>Peking University</h3>
+            <p>Ph.D. Candidate, Integrated Circuits</p>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-date">2018 - 2022</span>
+            <h3>Beihang University</h3>
+            <p>Bachelor, Microelectronics</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="awards" class="section-band alt-band">
+      <div class="container section-layout">
+        <div class="section-heading">
+          <p class="eyebrow">Recognition</p>
+          <h2>Awards</h2>
+        </div>
+        <ul class="award-list">
+          <li><strong>DATE Best Paper Award, first author, 2023</strong></li>
+          <li><strong>National Scholarship, Peking University, 2024</strong></li>
+          <li>Merit Student, Peking University, 2024</li>
+          <li>Industry Contribution Award, Department of Design Automation and Computing Systems, Peking University, 2023</li>
+          <li>Outstanding Research Award, Peking University, 2023</li>
+          <li>First Prize, Huawei Scholarship, 2023</li>
+          <li>Third Prize, Huawei Scholarship, 2022</li>
+          <li>Outstanding Graduate, Beihang University, 2022</li>
+          <li>First Prize Scholarship (8%), Beihang University, 2021</li>
+          <li>Merit Student, Beihang University, 2021</li>
+          <li>Second Prize, EDA Elite Design Challenge, 2021 and 2022</li>
+          <li>Empyrean Enterprise Special Award, EDA Elite Design Challenge, 2021</li>
         </ul>
+      </div>
     </section>
 
-    <section id="interns">
-  <h2>Internships</h2>
-  <ul>
-    <li>
-      <strong>Present</strong>: Physical Design Intern<br>
-      ByteDance – Jindouyun Program, Beijing
-    </li>
-    <li>
-      <strong>Apr 2024 – Sep 2024</strong>: Research Intern, Machine Learning Group<br>
-      Microsoft Research Asia, Beijing
-    </li>
-    <li>
-      <strong>Jul 2023 – Sep 2023</strong>: Development Intern<br>
-      Huawei Technologies Co., Ltd. (HiSilicon-Turing), Shanghai
-    </li>
-    <li>
-      <strong>Jul 2022 – Jan 2023</strong>: Development Intern<br>
-      Primarius Technology Co., Ltd., Beijing
-    </li>
-  </ul>
-</section>
-
-    <section id="resume">
-        <h2>Resume</h2>
-        <a href="assets/张昊懿.pdf" download>Click to download PDF CV</a>
+    <section id="experience" class="section-band">
+      <div class="container section-layout">
+        <div class="section-heading">
+          <p class="eyebrow">Experience</p>
+          <h2>Internships</h2>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <span class="timeline-date">Present</span>
+            <h3>ByteDance - Jindouyun Program</h3>
+            <p>Physical Design Intern, Beijing</p>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-date">Apr 2024 - Sep 2024</span>
+            <h3>Microsoft Research Asia</h3>
+            <p>Research Intern, Machine Learning Group, Beijing</p>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-date">Jul 2023 - Sep 2023</span>
+            <h3>Huawei Technologies Co., Ltd. (HiSilicon-Turing)</h3>
+            <p>Development Intern, Shanghai</p>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-date">Jul 2022 - Jan 2023</span>
+            <h3>Primarius Technology Co., Ltd.</h3>
+            <p>Development Intern, Beijing</p>
+          </article>
+        </div>
+      </div>
     </section>
-    <footer>
-        <p>&copy; 2025 Haoyi Zhang. Powered by GitHub Pages.</p>
-    </footer>
-    </div> <!-- main-content end -->
+
+    <section class="section-band closing-band">
+      <div class="container closing-grid">
+        <div>
+          <p class="eyebrow">Get in touch</p>
+          <h2>Interested in analog EDA, custom IC design automation, or AI4EDA collaboration?</h2>
+        </div>
+        <div class="closing-actions">
+          <a class="button primary" href="mailto:hy.zhang@stu.pku.edu.cn">Email Haoyi</a>
+          <a class="button secondary" href="assets/张昊懿.pdf" download>Download CV</a>
+          <a class="button secondary" href="visitors.html">Visitor Map</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>&copy; 2026 Haoyi Zhang. Powered by GitHub Pages.</span>
+      <a href="#top">Back to top</a>
+    </div>
+  </footer>
 </body>
 </html>
