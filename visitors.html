@@ -28,9 +28,8 @@
           <p class="eyebrow">Visitor Map</p>
           <h1>Visitor Map</h1>
           <p class="lead">
-            This page is a privacy-friendly entry for global visit information. Because GitHub Pages is static, it
-            cannot store every visitor IP by itself; visitors can check their own current public network location here,
-            and an analytics endpoint can be connected later for aggregated country or city statistics.
+            This page marks detected visitor locations as red dots on the world map. GitHub Pages can display these
+            browser-side visit dots now; a shared analytics endpoint can be connected later for full global history.
           </p>
           <div class="visitor-actions">
             <a class="button primary" href="index.html">Back to homepage</a>
@@ -39,6 +38,7 @@
           <div class="world-map-visual visitor-page-map" aria-hidden="true">
             <img class="world-map-image" src="assets/world-map-real.svg" alt="">
             <span class="map-credit">Map: Natural Earth</span>
+            <div class="visitor-dot-layer" data-visitor-dots></div>
             <span class="map-radar" data-visitor-pulse></span>
             <span class="map-pin" data-visitor-pin></span>
           </div>
@@ -54,6 +54,7 @@
             <span class="visit-counter-label">Site visits</span>
             <img src="https://visitor-badge.laobi.icu/badge?page_id=zhywhite.github.io.site&amp;left_color=%231f3f5f&amp;right_color=%23168f83" alt="Total site visit count">
           </div>
+          <p class="visit-dot-summary" data-dot-summary>Visitor dots: 0</p>
           <button class="button primary" type="button" data-lookup>Show my current location</button>
           <p class="status-line" data-status></p>
           <div class="lookup-result" data-result aria-live="polite"></div>
@@ -95,6 +96,7 @@
     </div>
   </footer>
 
+  <script src="assets/visitor-history.js"></script>
   <script>
     const lookupButton = document.querySelector("[data-lookup]");
     const statusLine = document.querySelector("[data-status]");
@@ -102,42 +104,45 @@
     const mapLink = document.querySelector("[data-map-link]");
     const visitorPin = document.querySelector("[data-visitor-pin]");
     const visitorPulse = document.querySelector("[data-visitor-pulse]");
+    const visitorDots = document.querySelector("[data-visitor-dots]");
+    const dotSummary = document.querySelector("[data-dot-summary]");
 
     function showRow(label, value) {
       const safeValue = value || "Unavailable";
       return `<div class="lookup-row"><span>${label}</span><strong>${safeValue}</strong></div>`;
     }
 
-    function placeVisitorPin(latitude, longitude) {
-      const lat = Number(latitude);
-      const lon = Number(longitude);
-      if (!Number.isFinite(lat) || !Number.isFinite(lon)) return;
-
-      const left = ((lon + 180) / 360) * 100;
-      const top = ((90 - lat) / 180) * 100;
-      const mapLeft = `${Math.max(3, Math.min(97, left))}%`;
-      const mapTop = `${Math.max(5, Math.min(95, top))}%`;
-      visitorPin.style.left = mapLeft;
-      visitorPin.style.top = mapTop;
-      visitorPulse.style.left = mapLeft;
-      visitorPulse.style.top = mapTop;
-      visitorPin.classList.add("is-visible");
+    function updateDotSummary(pins) {
+      const visits = VisitorHistory.countVisits(pins);
+      const dotLabel = pins.length === 1 ? "dot" : "dots";
+      const visitLabel = visits === 1 ? "visit" : "visits";
+      dotSummary.textContent = `Visitor dots: ${pins.length} ${dotLabel} / ${visits} ${visitLabel}`;
     }
 
-    lookupButton.addEventListener("click", async () => {
-      statusLine.textContent = "Looking up the public network location for this browser...";
-      result.innerHTML = "";
+    function renderStoredVisitorDots(currentPin) {
+      const pins = VisitorHistory.readPins();
+      VisitorHistory.renderDots(visitorDots, {
+        pins,
+        currentKey: currentPin && currentPin.key,
+        currentIp: currentPin && currentPin.ip
+      });
+      updateDotSummary(pins);
+      return pins;
+    }
+
+    async function lookupAndPlotVisitor(isAutomatic = false) {
+      statusLine.textContent = isAutomatic
+        ? "Marking this visit on the world map..."
+        : "Looking up the public network location for this browser...";
+      if (!isAutomatic) result.innerHTML = "";
       lookupButton.disabled = true;
 
       try {
-        const response = await fetch("https://ipapi.co/json/");
-        if (!response.ok) {
-          throw new Error("Lookup failed");
-        }
-
-        const data = await response.json();
-        const locationLabel = [data.city, data.region, data.country_name].filter(Boolean).join(", ");
+        const data = await VisitorHistory.lookup();
+        const locationLabel = VisitorHistory.getLocationLabel(data);
         const mapQuery = encodeURIComponent(locationLabel || data.ip || "");
+        const { pin, pins } = VisitorHistory.record(data);
+        if (!pin) throw new Error("No visitor coordinates");
 
         result.innerHTML = [
           showRow("Public IP", data.ip),
@@ -151,15 +156,24 @@
           mapLink.classList.remove("is-disabled");
           mapLink.removeAttribute("aria-disabled");
         }
-        placeVisitorPin(data.latitude, data.longitude);
+        VisitorHistory.renderDots(visitorDots, { pins, currentKey: pin.key, currentIp: pin.ip });
+        VisitorHistory.placeMarker(visitorPin, visitorPulse, pin);
+        updateDotSummary(pins);
 
-        statusLine.textContent = "Lookup complete. This result is shown only in your browser.";
+        statusLine.textContent = "Lookup complete. This visit is marked as a red dot on the map.";
       } catch (error) {
         statusLine.textContent = "Lookup failed. The external IP lookup service may be blocked or unavailable.";
       } finally {
         lookupButton.disabled = false;
       }
-    });
+    }
+
+    const storedVisitorPins = renderStoredVisitorDots();
+    if (storedVisitorPins.length) {
+      statusLine.textContent = "Showing remembered visitor dots from this browser.";
+    }
+    lookupAndPlotVisitor(true);
+    lookupButton.addEventListener("click", () => lookupAndPlotVisitor(false));
   </script>
 </body>
 </html>
