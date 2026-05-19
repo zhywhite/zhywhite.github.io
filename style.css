@@ -363,6 +363,8 @@ h3 {
   list-style: decimal;
   margin: 0;
   padding-left: 1.35rem;
+  font-size: 1.06rem;
+  line-height: 1.7;
 }
 
 .publication-list li {
@@ -374,15 +376,17 @@ h3 {
 
 .publication-authors {
   color: #3c4c5a;
+  font-size: 1.02rem;
 }
 
 .publication-title {
   font-weight: 760;
-  line-height: 1.45;
+  line-height: 1.55;
 }
 
 .publication-venue {
   color: #314454;
+  font-size: 1.02rem;
 }
 
 .publication-list a {
@@ -622,6 +626,15 @@ h3 {
   .lookup-row {
     flex-direction: column;
     gap: 2px;
+  }
+
+  .publication-list {
+    font-size: 1rem;
+  }
+
+  .publication-authors,
+  .publication-venue {
+    font-size: 0.97rem;
   }
 
   .lookup-row strong {
