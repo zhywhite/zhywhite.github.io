@@ -105,7 +105,7 @@
               <span class="visit-counter-label">Site visits</span>
               <img src="https://visitor-badge.laobi.icu/badge?page_id=zhywhite.github.io.site&amp;left_color=%231f3f5f&amp;right_color=%23168f83" alt="Total site visit count">
             </div>
-            <p class="visit-dot-summary" data-globe-dot-summary>Visitor dots: 0</p>
+            <p class="visit-dot-summary" data-globe-dot-summary>Visitor cities: 0</p>
             <p class="status-line" data-globe-status>Waiting for a visitor lookup.</p>
             <div class="lookup-result compact" data-globe-result aria-live="polite"></div>
           </div>
@@ -431,10 +431,9 @@
     }
 
     function updateGlobeDotSummary(pins) {
-      const visits = VisitorHistory.countVisits(pins);
-      const dotLabel = pins.length === 1 ? "dot" : "dots";
-      const visitLabel = visits === 1 ? "visit" : "visits";
-      globeDotSummary.textContent = `Visitor dots: ${pins.length} ${dotLabel} / ${visits} ${visitLabel}`;
+      const cities = VisitorHistory.countCities(pins);
+      const cityLabel = cities === 1 ? "city" : "cities";
+      globeDotSummary.textContent = `Visitor cities: ${cities} ${cityLabel}`;
     }
 
     function renderStoredGlobeDots(currentPin) {

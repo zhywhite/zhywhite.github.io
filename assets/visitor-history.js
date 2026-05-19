@@ -2,7 +2,6 @@
   "use strict";
 
   const STORAGE_KEY = "haoyi.visitorMap.pins.v1";
-  const SESSION_KEY_PREFIX = "haoyi.visitorMap.session.";
   const MAX_PINS = 80;
 
   function canUseStorage(type) {
@@ -18,7 +17,79 @@
   }
 
   const hasLocalStorage = canUseStorage("localStorage");
-  const hasSessionStorage = canUseStorage("sessionStorage");
+
+  function normalizeText(value) {
+    return String(value || "").trim().toLowerCase();
+  }
+
+  function getPinCity(pin) {
+    if (pin.city) return pin.city;
+    if (pin.location) return String(pin.location).split(",")[0].trim();
+    return "";
+  }
+
+  function getPinRegion(pin) {
+    if (pin.region) return pin.region;
+    if (!pin.location) return "";
+
+    const parts = String(pin.location).split(",").map((part) => part.trim());
+    return parts.length > 2 ? parts[1] : "";
+  }
+
+  function getPinCountry(pin) {
+    if (pin.country_name) return pin.country_name;
+    if (pin.country) return pin.country;
+    if (!pin.location) return "";
+
+    const parts = String(pin.location).split(",").map((part) => part.trim());
+    return parts.length > 1 ? parts[parts.length - 1] : "";
+  }
+
+  function getCityKey(pin) {
+    const city = getPinCity(pin);
+    const region = getPinRegion(pin);
+    const country = getPinCountry(pin);
+    const cityParts = [city, region, country].map(normalizeText).filter(Boolean);
+
+    if (cityParts.length) return cityParts.join("|");
+    return [
+      Number(pin.latitude).toFixed(2),
+      Number(pin.longitude).toFixed(2)
+    ].join("|");
+  }
+
+  function normalizePin(pin) {
+    return {
+      key: getCityKey(pin),
+      ip: pin.ip || "",
+      city: getPinCity(pin),
+      region: getPinRegion(pin),
+      country: getPinCountry(pin),
+      latitude: Number(pin.latitude),
+      longitude: Number(pin.longitude),
+      location: pin.location || [getPinCity(pin), getPinRegion(pin), getPinCountry(pin)].filter(Boolean).join(", "),
+      org: pin.org || "",
+      timezone: pin.timezone || "",
+      seenAt: pin.seenAt || new Date().toISOString()
+    };
+  }
+
+  function dedupeCityPins(pins) {
+    const cityPins = [];
+    const seenCities = new Set();
+
+    pins.forEach((pin) => {
+      if (!Number.isFinite(Number(pin.latitude)) || !Number.isFinite(Number(pin.longitude))) return;
+
+      const normalizedPin = normalizePin(pin);
+      if (seenCities.has(normalizedPin.key)) return;
+
+      seenCities.add(normalizedPin.key);
+      cityPins.push(normalizedPin);
+    });
+
+    return cityPins.slice(0, MAX_PINS);
+  }
 
   function readPins() {
     if (!hasLocalStorage) return [];
@@ -27,9 +98,7 @@
       const rawPins = JSON.parse(window.localStorage.getItem(STORAGE_KEY) || "[]");
       if (!Array.isArray(rawPins)) return [];
 
-      return rawPins
-        .filter((pin) => Number.isFinite(Number(pin.latitude)) && Number.isFinite(Number(pin.longitude)))
-        .slice(0, MAX_PINS);
+      return dedupeCityPins(rawPins);
     } catch (error) {
       return [];
     }
@@ -47,20 +116,6 @@
 
   function getLocationLabel(data) {
     return [data.city, data.region, data.country_name].filter(Boolean).join(", ");
-  }
-
-  function getPinKey(data) {
-    if (data.ip) return data.ip;
-    return `${Number(data.latitude).toFixed(3)},${Number(data.longitude).toFixed(3)}`;
-  }
-
-  function shouldCountVisit(key) {
-    if (!hasSessionStorage) return true;
-
-    const sessionKey = `${SESSION_KEY_PREFIX}${key}`;
-    if (window.sessionStorage.getItem(sessionKey)) return false;
-    window.sessionStorage.setItem(sessionKey, "1");
-    return true;
   }
 
   function getMapPosition(latitude, longitude) {
@@ -83,24 +138,26 @@
       return { pin: null, pins };
     }
 
-    const key = getPinKey(data);
+    const key = getCityKey(data);
     const pins = readPins();
-    const existing = pins.find((pin) => pin.key === key || (data.ip && pin.ip === data.ip));
-    const countVisit = shouldCountVisit(key);
+    const existing = pins.find((pin) => pin.key === key);
     const pin = {
       key,
       ip: data.ip || "",
+      city: data.city || "",
+      region: data.region || "",
+      country: data.country_name || "",
       latitude: Number(data.latitude),
       longitude: Number(data.longitude),
       location: getLocationLabel(data),
       org: data.org || "",
       timezone: data.timezone || "",
-      seenAt: new Date().toISOString(),
-      visits: existing ? Number(existing.visits || 1) + (countVisit ? 1 : 0) : 1
+      seenAt: existing ? existing.seenAt : new Date().toISOString(),
+      lastSeenAt: new Date().toISOString()
     };
     const nextPins = [
       pin,
-      ...pins.filter((savedPin) => savedPin.key !== pin.key && (!pin.ip || savedPin.ip !== pin.ip))
+      ...pins.filter((savedPin) => savedPin.key !== pin.key)
     ].slice(0, MAX_PINS);
 
     writePins(nextPins);
@@ -127,8 +184,8 @@
       dot.style.setProperty("--dot-delay", `${Math.min(index, 10) * 0.04}s`);
       dot.title = [
         pin.location || "Visitor",
-        pin.ip ? `IP: ${pin.ip}` : "",
-        `${Number(pin.visits || 1)} visit${Number(pin.visits || 1) === 1 ? "" : "s"}`
+        "City-level IP lookup",
+        "Counted once"
       ].filter(Boolean).join(" · ");
       layer.append(dot);
     });
@@ -153,12 +210,12 @@
     return response.json();
   }
 
-  function countVisits(pins) {
-    return pins.reduce((total, pin) => total + Number(pin.visits || 1), 0);
+  function countCities(pins) {
+    return dedupeCityPins(pins).length;
   }
 
   window.VisitorHistory = {
-    countVisits,
+    countCities,
     getLocationLabel,
     lookup,
     placeMarker,
