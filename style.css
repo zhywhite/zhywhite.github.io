@@ -74,7 +74,7 @@ a:hover {
 .site-mark {
   color: var(--ink);
   font-weight: 800;
-  font-size: 1.04rem;
+  font-size: 1.16rem;
   white-space: nowrap;
 }
 
@@ -88,9 +88,9 @@ a:hover {
 
 .nav-links a {
   color: var(--muted);
-  font-size: 0.94rem;
+  font-size: 1.06rem;
   font-weight: 650;
-  padding: 8px 10px;
+  padding: 9px 11px;
   border-radius: 8px;
 }
 
@@ -151,7 +151,7 @@ a:hover {
 .eyebrow {
   margin: 0 0 10px;
   color: var(--coral);
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   font-weight: 800;
   line-height: 1.3;
   text-transform: uppercase;
@@ -175,14 +175,14 @@ h1 {
 
 h2 {
   margin-bottom: 18px;
-  font-size: 3.15rem;
+  font-size: 3.45rem;
   line-height: 1.08;
   letter-spacing: 0;
 }
 
 h3 {
   margin-bottom: 8px;
-  font-size: 1.08rem;
+  font-size: 1.2rem;
   line-height: 1.35;
   letter-spacing: 0;
 }
@@ -190,7 +190,7 @@ h3 {
 .lead {
   max-width: 720px;
   color: #384756;
-  font-size: 1.15rem;
+  font-size: 1.24rem;
 }
 
 .hero-actions,
@@ -212,6 +212,7 @@ h3 {
   padding: 10px 16px;
   border: 1px solid transparent;
   border-radius: 8px;
+  font-size: 1rem;
   font-weight: 750;
   line-height: 1.2;
   transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
@@ -311,7 +312,7 @@ h3 {
 
 .section-summary {
   color: var(--muted);
-  font-size: 1rem;
+  font-size: 1.12rem;
 }
 
 .research-grid {
@@ -355,7 +356,7 @@ h3 {
 
 .publication-group h3 {
   color: var(--coral);
-  font-size: 1.22rem;
+  font-size: 1.48rem;
   margin-bottom: 18px;
 }
 
@@ -553,7 +554,7 @@ h3 {
   }
 
   h2 {
-    font-size: 2.45rem;
+    font-size: 2.65rem;
   }
 
   .hero-grid,
@@ -584,7 +585,7 @@ h3 {
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 2.18rem;
   }
 
   .site-header {
@@ -603,6 +604,7 @@ h3 {
   }
 
   .nav-links a {
+    font-size: 1.02rem;
     padding: 6px 8px;
   }
 
@@ -632,6 +634,10 @@ h3 {
     font-size: 1rem;
   }
 
+  .publication-group h3 {
+    font-size: 1.32rem;
+  }
+
   .publication-authors,
   .publication-venue {
     font-size: 0.97rem;
@@ -648,7 +654,7 @@ h3 {
   }
 
   h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   .container {
