@@ -36,17 +36,10 @@
             <a class="button primary" href="index.html">Back to homepage</a>
             <a class="button secondary" href="https://whos.amung.us/stats/zhywhiteio/" target="_blank" rel="noopener noreferrer">Open live stats</a>
           </div>
-          <div class="live-map-card" data-live-map-card>
-            <div class="world-map-visual visitor-page-map" aria-hidden="true">
-              <img class="world-map-image" src="assets/world-map-real.svg" alt="">
-              <span class="map-credit">Map: Natural Earth</span>
-              <div class="live-map-callout">
-                <strong>Live visitor map</strong>
-                <span>Real city-level dots load from the shared visitor map.</span>
-              </div>
-            </div>
-            <div class="real-visitor-map visitor-page-map" data-live-map-frame data-widget-id="zh2" data-widget-width="700" data-widget-height="350" aria-label="Real visitor locations">
-              <span class="map-loading">Loading live visitor map...</span>
+          <div class="real-visitor-map visitor-page-map" aria-label="Real visitor locations">
+            <div class="visitor-widget-embed">
+              <script id="_wauzh2">var _wau = _wau || []; _wau.push(["map", "zhywhiteio", "zh2", "700", "350", "natural", "star-red"]);</script>
+              <script async src="https://waust.at/m.js"></script>
             </div>
           </div>
         </div>
@@ -97,6 +90,5 @@
     </div>
   </footer>
 
-  <script src="assets/live-visitor-map.js" defer></script>
 </body>
 </html>

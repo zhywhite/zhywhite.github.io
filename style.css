@@ -542,38 +542,6 @@ h3 {
   line-height: 1.2;
 }
 
-.live-map-card.is-live .world-map-visual {
-  display: none;
-}
-
-.live-map-callout {
-  position: absolute;
-  z-index: 5;
-  left: 18px;
-  bottom: 18px;
-  display: grid;
-  gap: 3px;
-  max-width: min(320px, calc(100% - 36px));
-  padding: 12px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.66);
-  border-radius: 8px;
-  color: var(--ink);
-  background: rgba(255, 255, 255, 0.82);
-  box-shadow: 0 12px 28px rgba(23, 33, 43, 0.1);
-  backdrop-filter: blur(10px);
-}
-
-.live-map-callout strong {
-  font-size: 1rem;
-  line-height: 1.2;
-}
-
-.live-map-callout span {
-  color: var(--muted);
-  font-size: 0.88rem;
-  line-height: 1.35;
-}
-
 .real-visitor-map {
   position: relative;
   z-index: 1;
@@ -590,32 +558,12 @@ h3 {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
 }
 
-.real-visitor-map.is-hidden {
-  display: none;
-}
-
-.map-loading {
-  color: var(--muted);
-  font-size: 0.96rem;
-  font-weight: 800;
-}
-
 .visitor-widget-embed {
   width: 100%;
   min-width: min(620px, 100%);
   min-height: 310px;
   display: grid;
   place-items: center;
-}
-
-.visitor-live-frame {
-  display: block;
-  width: 100%;
-  min-width: 620px;
-  max-width: 100%;
-  min-height: 330px;
-  border: 0;
-  background: transparent;
 }
 
 .visitor-widget-embed iframe,
