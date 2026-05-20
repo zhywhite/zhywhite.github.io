@@ -29,12 +29,11 @@
           <p class="eyebrow">Visitor Map</p>
           <h1>Visitor Map</h1>
           <p class="lead">
-            The map preview stays lightweight until you request the live visitor layer. New city-level dots come from
-            the shared analytics map instead of browser-local storage.
+            Real city-level visitor dots are shown automatically through the shared analytics map instead of
+            browser-local storage.
           </p>
           <div class="visitor-actions">
             <a class="button primary" href="index.html">Back to homepage</a>
-            <button class="button secondary" type="button" data-live-map-trigger>Load live map</button>
             <a class="button secondary" href="https://whos.amung.us/stats/zhywhiteio/" target="_blank" rel="noopener noreferrer">Open live stats</a>
           </div>
           <div class="live-map-card" data-live-map-card>
@@ -42,18 +41,20 @@
               <img class="world-map-image" src="assets/world-map-real.svg" alt="">
               <span class="map-credit">Map: Natural Earth</span>
               <div class="live-map-callout">
-                <strong>Real visitor dots</strong>
-                <span>Click to load the live shared map.</span>
+                <strong>Live visitor map</strong>
+                <span>Real city-level dots load from the shared visitor map.</span>
               </div>
             </div>
-            <div class="real-visitor-map visitor-page-map is-hidden" data-live-map-frame data-widget-id="zh2" data-widget-width="700" data-widget-height="350" aria-label="Real visitor locations"></div>
+            <div class="real-visitor-map visitor-page-map" data-live-map-frame data-widget-id="zh2" data-widget-width="700" data-widget-height="350" aria-label="Real visitor locations">
+              <span class="map-loading">Loading live visitor map...</span>
+            </div>
           </div>
         </div>
 
         <aside class="visitor-panel" aria-labelledby="lookup-title">
           <h2 id="lookup-title">Shared visitor map</h2>
           <p class="privacy-note">
-            The live map is powered by whos.amung.us and is loaded on demand to keep the homepage responsive.
+            The live map is powered by whos.amung.us and displays new visits as city-level dots.
           </p>
           <div class="visit-counter" aria-label="Public site visit counter">
             <span class="visit-counter-label">Site visits</span>

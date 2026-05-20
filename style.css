@@ -594,6 +594,12 @@ h3 {
   display: none;
 }
 
+.map-loading {
+  color: var(--muted);
+  font-size: 0.96rem;
+  font-weight: 800;
+}
+
 .visitor-widget-embed {
   width: 100%;
   min-width: min(620px, 100%);
