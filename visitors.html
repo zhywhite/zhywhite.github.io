@@ -28,26 +28,31 @@
           <p class="eyebrow">Visitor Map</p>
           <h1>Visitor Map</h1>
           <p class="lead">
-            This page uses a real shared visitor-map widget. New visits are recorded by the same external service and
-            shown as city-level dots instead of being stored only in this browser.
+            The map preview stays lightweight until you request the live visitor layer. New city-level dots come from
+            the shared analytics map instead of browser-local storage.
           </p>
           <div class="visitor-actions">
             <a class="button primary" href="index.html">Back to homepage</a>
+            <button class="button secondary" type="button" data-live-map-trigger>Load live map</button>
             <a class="button secondary" href="https://whos.amung.us/stats/zhywhiteio/" target="_blank" rel="noopener noreferrer">Open live stats</a>
           </div>
-          <div class="real-visitor-map visitor-page-map" aria-label="Real visitor locations">
-            <div class="visitor-widget-embed">
-              <script id="_wauzh2">var _wau = _wau || []; _wau.push(["map", "zhywhiteio", "zh2", "700", "350", "natural", "star-red"]);</script>
-              <script async src="https://waust.at/m.js"></script>
+          <div class="live-map-card" data-live-map-card>
+            <div class="world-map-visual visitor-page-map" aria-hidden="true">
+              <img class="world-map-image" src="assets/world-map-real.svg" alt="">
+              <span class="map-credit">Map: Natural Earth</span>
+              <div class="live-map-callout">
+                <strong>Real visitor dots</strong>
+                <span>Click to load the live shared map.</span>
+              </div>
             </div>
+            <div class="real-visitor-map visitor-page-map is-hidden" data-live-map-frame data-widget-id="zh2" data-widget-width="700" data-widget-height="350" aria-label="Real visitor locations"></div>
           </div>
         </div>
 
         <aside class="visitor-panel" aria-labelledby="lookup-title">
           <h2 id="lookup-title">Shared visitor map</h2>
           <p class="privacy-note">
-            The visible map now comes from whos.amung.us, so new visitor locations are recorded in one shared map
-            instead of being local-only.
+            The live map is powered by whos.amung.us and is loaded on demand to keep the homepage responsive.
           </p>
           <div class="visit-counter" aria-label="Public site visit counter">
             <span class="visit-counter-label">Site visits</span>
@@ -63,8 +68,8 @@
         <div class="visitor-panel">
           <h2>What changed</h2>
           <p>
-            The old badge counter only exposed a total number, not historical coordinates. The real visitor map starts
-            collecting map dots from the moment this widget is live.
+            The old badge counter only exposes a total number, not historical coordinates. The live visitor map starts
+            collecting map dots from the moment the shared widget is active.
           </p>
           <p class="privacy-note">
             Past badge-only visits cannot be retroactively placed on the map without logs from a tracking service.
@@ -90,5 +95,6 @@
     </div>
   </footer>
 
+  <script src="assets/live-visitor-map.js" defer></script>
 </body>
 </html>
