@@ -28,36 +28,32 @@
           <p class="eyebrow">Visitor Map</p>
           <h1>Visitor Map</h1>
           <p class="lead">
-            This page marks detected visitor locations as red dots on the world map. GitHub Pages can display these
-            browser-side visit dots now; a shared analytics endpoint can be connected later for full global history.
+            This page uses a real shared visitor-map widget. New visits are recorded by the same external service and
+            shown as city-level dots instead of being stored only in this browser.
           </p>
           <div class="visitor-actions">
             <a class="button primary" href="index.html">Back to homepage</a>
-            <a class="button secondary is-disabled" data-map-link href="#" aria-disabled="true">Open map search</a>
+            <a class="button secondary" href="https://whos.amung.us/stats/zhywhiteio/" target="_blank" rel="noopener noreferrer">Open live stats</a>
           </div>
-          <div class="world-map-visual visitor-page-map" aria-hidden="true">
-            <img class="world-map-image" src="assets/world-map-real.svg" alt="">
-            <span class="map-credit">Map: Natural Earth</span>
-            <div class="visitor-dot-layer" data-visitor-dots></div>
-            <span class="map-radar" data-visitor-pulse></span>
-            <span class="map-pin" data-visitor-pin></span>
+          <div class="real-visitor-map visitor-page-map" aria-label="Real visitor locations">
+            <div class="visitor-widget-embed">
+              <script id="_wauzh2">var _wau = _wau || []; _wau.push(["map", "zhywhiteio", "zh2", "700", "350", "natural", "star-red"]);</script>
+              <script async src="https://waust.at/m.js"></script>
+            </div>
           </div>
         </div>
 
         <aside class="visitor-panel" aria-labelledby="lookup-title">
-          <h2 id="lookup-title">Current visitor lookup</h2>
+          <h2 id="lookup-title">Shared visitor map</h2>
           <p class="privacy-note">
-            This lookup runs only after the button is clicked. It uses ipapi.co to estimate the public IP location for
-            the current browser session.
+            The visible map now comes from whos.amung.us, so new visitor locations are recorded in one shared map
+            instead of being local-only.
           </p>
           <div class="visit-counter" aria-label="Public site visit counter">
             <span class="visit-counter-label">Site visits</span>
             <img src="https://visitor-badge.laobi.icu/badge?page_id=zhywhite.github.io.site&amp;left_color=%231f3f5f&amp;right_color=%23168f83" alt="Total site visit count">
           </div>
-          <p class="visit-dot-summary" data-dot-summary>Visitor cities: 0</p>
-          <button class="button primary" type="button" data-lookup>Show my current location</button>
-          <p class="status-line" data-status></p>
-          <div class="lookup-result" data-result aria-live="polite"></div>
+          <a class="button primary" href="https://whos.amung.us/stats/zhywhiteio/" target="_blank" rel="noopener noreferrer">Open full map</a>
         </aside>
       </div>
     </section>
@@ -65,24 +61,22 @@
     <section class="section-band">
       <div class="container visitor-grid">
         <div class="visitor-panel">
-          <h2>How to enable full visitor statistics</h2>
+          <h2>What changed</h2>
           <p>
-            To see all global clicks over time, connect a real analytics service or a small serverless endpoint. The
-            recommended public display is aggregated by country, region, or city instead of exposing exact IP addresses.
+            The old badge counter only exposed a total number, not historical coordinates. The real visitor map starts
+            collecting map dots from the moment this widget is live.
           </p>
           <p class="privacy-note">
-            Good options for GitHub Pages are Cloudflare Web Analytics, GoatCounter, Plausible, Google Analytics, or a
-            self-hosted API that writes anonymized visit events.
+            Past badge-only visits cannot be retroactively placed on the map without logs from a tracking service.
           </p>
         </div>
         <div class="visitor-panel">
-          <h2>Why not list raw IPs?</h2>
+          <h2>Privacy</h2>
           <p>
-            IP addresses can identify or track people across visits. Publishing them publicly is privacy-sensitive, and
-            many analytics platforms intentionally avoid showing raw visitor IPs for that reason.
+            The public display should stay at city or country level. Raw IP addresses are not shown on the page.
           </p>
           <p class="privacy-note">
-            If you want an owner-only dashboard later, this page can link to it after the service is configured.
+            For owner-only detailed analytics later, connect a private analytics dashboard.
           </p>
         </div>
       </div>
@@ -96,83 +90,5 @@
     </div>
   </footer>
 
-  <script src="assets/visitor-history.js"></script>
-  <script>
-    const lookupButton = document.querySelector("[data-lookup]");
-    const statusLine = document.querySelector("[data-status]");
-    const result = document.querySelector("[data-result]");
-    const mapLink = document.querySelector("[data-map-link]");
-    const visitorPin = document.querySelector("[data-visitor-pin]");
-    const visitorPulse = document.querySelector("[data-visitor-pulse]");
-    const visitorDots = document.querySelector("[data-visitor-dots]");
-    const dotSummary = document.querySelector("[data-dot-summary]");
-
-    function showRow(label, value) {
-      const safeValue = value || "Unavailable";
-      return `<div class="lookup-row"><span>${label}</span><strong>${safeValue}</strong></div>`;
-    }
-
-    function updateDotSummary(pins) {
-      const cities = VisitorHistory.countCities(pins);
-      const cityLabel = cities === 1 ? "city" : "cities";
-      dotSummary.textContent = `Visitor cities: ${cities} ${cityLabel}`;
-    }
-
-    function renderStoredVisitorDots(currentPin) {
-      const pins = VisitorHistory.readPins();
-      VisitorHistory.renderDots(visitorDots, {
-        pins,
-        currentKey: currentPin && currentPin.key,
-        currentIp: currentPin && currentPin.ip
-      });
-      updateDotSummary(pins);
-      return pins;
-    }
-
-    async function lookupAndPlotVisitor(isAutomatic = false) {
-      statusLine.textContent = isAutomatic
-        ? "Marking this visit on the world map..."
-        : "Looking up the public network location for this browser...";
-      if (!isAutomatic) result.innerHTML = "";
-      lookupButton.disabled = true;
-
-      try {
-        const data = await VisitorHistory.lookup();
-        const locationLabel = VisitorHistory.getLocationLabel(data);
-        const mapQuery = encodeURIComponent(locationLabel || data.ip || "");
-        const { pin, pins } = VisitorHistory.record(data);
-        if (!pin) throw new Error("No visitor coordinates");
-
-        result.innerHTML = [
-          showRow("Public IP", data.ip),
-          showRow("Estimated location", locationLabel),
-          showRow("Network", data.org),
-          showRow("Timezone", data.timezone)
-        ].join("");
-
-        if (mapQuery) {
-          mapLink.href = `https://www.openstreetmap.org/search?query=${mapQuery}`;
-          mapLink.classList.remove("is-disabled");
-          mapLink.removeAttribute("aria-disabled");
-        }
-        VisitorHistory.renderDots(visitorDots, { pins, currentKey: pin.key, currentIp: pin.ip });
-        VisitorHistory.placeMarker(visitorPin, visitorPulse, pin);
-        updateDotSummary(pins);
-
-        statusLine.textContent = "Lookup complete. This visit is marked as a red dot on the map.";
-      } catch (error) {
-        statusLine.textContent = "Lookup failed. The external IP lookup service may be blocked or unavailable.";
-      } finally {
-        lookupButton.disabled = false;
-      }
-    }
-
-    const storedVisitorPins = renderStoredVisitorDots();
-    if (storedVisitorPins.length) {
-      statusLine.textContent = "Showing remembered visitor dots from this browser.";
-    }
-    lookupAndPlotVisitor(true);
-    lookupButton.addEventListener("click", () => lookupAndPlotVisitor(false));
-  </script>
 </body>
 </html>
