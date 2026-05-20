@@ -859,11 +859,23 @@ h3 {
   font-size: 0.94rem;
 }
 
+#service .timeline-date {
+  font-size: 0.94rem;
+}
+
 #experience .timeline-item h3 {
   font-size: 1.38rem;
 }
 
+#service .timeline-item h3 {
+  font-size: 1.38rem;
+}
+
 #experience .timeline-item p {
+  font-size: 1.1rem;
+}
+
+#service .timeline-item p {
   font-size: 1.1rem;
 }
 
