@@ -676,7 +676,7 @@ h3 {
 }
 
 .publication-list {
-  counter-reset: publication;
+  counter-reset: publication 0;
   list-style: none;
   margin: 0;
   padding-left: 0;
@@ -685,7 +685,7 @@ h3 {
 }
 
 .publication-list li {
-  counter-increment: publication;
+  counter-increment: publication -1;
   position: relative;
   padding: 0 0 18px 5.65rem;
   margin-bottom: 18px;

@@ -427,5 +427,13 @@
     </div>
   </footer>
 
+  <script>
+    document.querySelectorAll(".publication-list").forEach((list) => {
+      list.style.counterReset = `publication ${list.children.length + 1}`;
+      Array.from(list.children).forEach((item) => {
+        item.style.counterIncrement = "publication -1";
+      });
+    });
+  </script>
 </body>
 </html>
